@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.galmuri.model.mapper.TripMapper">
+	<insert id="insertTrip" parameterType="TripDto">
+		insert into trip (title, hostID, hostDomain, startDate, EndDate, theme, MaxMember, nowMember, comment, isDone) 
+		values (#{title}, #{hostId}, #{hostDomain}, #{startDate}, #{endDate}, #{theme}, #{maxMember}, #{nowMember}, #{comment}, #{isDone})
+	</insert>
+	<insert id="insertSchedule" parameterType="java.util.List">
+		insert into schedule (tripId, CountryCode, locationName, tripOrder) 
+		values 
+			<foreach item="item" collection="list" separator=" , ">
+			(
+				#{item.tripId}, #{item.countryCode}, #{item.locationName}, #{item.tripOrder}
+			)
+			</foreach>
+	</insert>
+	<select id="tripInfo" parameterType="TripDto" resultType="TripDto">
+		select TripID, title, HostID, HostDomain, updateDate, startDate, EndDate, Theme, MaxMember, NowMember, comment, isDone
+		from trip
+		where trip.TripID=#{tripId}
+	</select>
+	<select id="findByUserId" parameterType="TripDto" resultType="TripDto">
+		select TripID, title, HostID, HostDomain, updateDate, startDate, EndDate, Theme, MaxMember, NowMember, comment, isDone
+		from trip
+		where trip.HostID=#{hostId} and trip.HostDomain=#{hostDomain}
+	</select>
+	<select id="scheduleList" parameterType="TripDto" resultType="ScheduleDto">
+		select TripID, CountryCode, locationName, TripOrder
+		from Schedule
+		where Schedule.TripID=#{tripId}
+	</select>
+	<update id="updateTrip" parameterType="TripDto">
+		update Trip 
+		set title=#{title}, hostID=#{hostId}, hostDomain=#{hostDomain}, startDate=#{startDate}, EndDate=#{endDate}, theme=#{theme}, MaxMember=#{maxMember}, nowMember=#{nowMember}, comment=#{comment}, isDone=#{isDone}
+		where TripID=#{tripId}
+	</update>
+	<update id="updateSchedule" parameterType="ScheduleDto">
+		update Schedule
+		set CountryCode=#{countryCode}, locationName=#{locationName}, TripOrder=#{tripOrder}
+		where TripID=#{tripId} and TripOrder=#{tripOrder}
+	</update>
+	<delete id="deleteTrip" parameterType="TripDto">
+		delete from trip where TripID=#{tripId}
+	</delete>
+	<delete id="deleteAllSchedule" parameterType="ScheduleDto">
+		delete from Schedule where TripID=#{tripId}
+	</delete>
+	<delete id="deleteSchedule" parameterType="ScheduleDto">
+		delete from Schedule where TripID=#{tripId} and TripOrder=#{tripOrder}
+	</delete>
+</mapper>

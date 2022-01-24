@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.galmuri.model.mapper.UserMapper">
+	<insert id="signUp" parameterType="UserDto">
+		insert into User (UserID, domain, age, gender, nickname)
+		values (#{userId}, #{domain}, #{age}, #{gender}, #{nickname})
+	</insert>
+	<insert id="insertOption" parameterType="UserDto">
+		insert into userOption (UserID, domain, favoriteCountry, Twitter, Facebook, Instagram)
+		values (#{userId}, #{domain},#{favoriteCountry}, #{twitter}, #{facebook}, #{instagram})
+	</insert>
+	<select id="userInfo" parameterType="UserDto" resultType="UserDto">
+		select UserID, domain, age, gender, nickname, favoriteCountry, Twitter, Facebook, Instagram
+		from User, userOption
+		where User.UserID=#{userId} and User.domain=#{domain} 
+		and User.UserID=userOption.UserID and User.domain=userOption.domain
+	</select>
+	<update id="updateUser" parameterType="UserDto">
+		update User set age=#{age},gender=#{gender}, nickname=#{nickname}, totalscore=#{totalScore}, totalvote=#{totalVote}
+		where UserID=#{userId} and domain=#{domain}
+	</update>
+	<update id="updateOption" parameterType="UserDto">
+		update userOption set favoriteCountry=#{favoriteCountry}, Twitter=#{twitter}, Facebook=#{facebook}, Instagram=#{instagram}
+		where UserID=#{userId} and domain=#{domain}
+	</update>
+	<delete id="deleteUser" parameterType="UserDto">
+		delete from User where UserID=#{userId} and domain=#{domain}
+	</delete>
+</mapper>
