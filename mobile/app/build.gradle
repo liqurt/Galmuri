@@ -6,6 +6,11 @@ plugins {
 android {
     compileSdk 31
 
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId "com.ssafy.gumi107.mobile_app"
         minSdk 23
