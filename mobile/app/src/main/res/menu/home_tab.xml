@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_main">
 
     <item
         android:id="@+id/tab_home"
@@ -17,7 +18,7 @@
         android:title="@string/common_message" />
 
     <item
-        android:id="@+id/tab_mypage"
+        android:id="@+id/mypageFragment"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/common_mypage" />
 
