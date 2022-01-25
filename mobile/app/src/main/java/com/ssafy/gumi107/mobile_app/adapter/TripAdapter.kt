@@ -1,24 +1,21 @@
-package com.ssafy.gumi107.mobile_app.features.adapter
+package com.ssafy.gumi107.mobile_app.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ssafy.gumi107.mobile_app.databinding.RcvItemTripBinding
-import com.ssafy.gumi107.mobile_app.features.config.Constants
-import com.ssafy.gumi107.mobile_app.features.dto.Schedule
-import com.ssafy.gumi107.mobile_app.features.dto.Trip
-import java.text.SimpleDateFormat
-import java.util.*
+import com.ssafy.gumi107.mobile_app.config.Constants
+import com.ssafy.gumi107.mobile_app.dto.Trip
 
 class TripAdapter(private val messageList: MutableList<Trip>)
     : RecyclerView.Adapter<TripAdapter.MessageHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripAdapter.MessageHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageHolder {
         val binding = RcvItemTripBinding.inflate(LayoutInflater.from(parent.context),parent, false)
         return MessageHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: TripAdapter.MessageHolder, position: Int) {
+    override fun onBindViewHolder(holder: MessageHolder, position: Int) {
         holder.bindInfo(messageList[position])
     }
 
@@ -31,7 +28,7 @@ class TripAdapter(private val messageList: MutableList<Trip>)
             binding.tripDestination.text = trip.schedule.last().location.locationName
             binding.tripPeople.text = "${trip.nowMember}/${trip.maxMember}"
             binding.tripDuration.text = "${Constants.convertLongToTime(trip.startDate)} ~ ${Constants.convertLongToTime(trip.endDate)}"
-            binding.tripUpdateDate.text = "${Constants.convertLongToTime(trip.updateDate)}"
+            binding.tripUpdateDate.text = Constants.convertLongToTime(trip.updateDate)
             itemView.setOnClickListener {
                 listener.onClick(trip, layoutPosition)
             }
@@ -43,7 +40,7 @@ class TripAdapter(private val messageList: MutableList<Trip>)
     }
 
     lateinit var listener : TripClickListener
-    fun setItemClickListener(listener:TripClickListener){
+    fun setItemClickListener(listener: TripClickListener){
         this.listener = listener
     }
 }

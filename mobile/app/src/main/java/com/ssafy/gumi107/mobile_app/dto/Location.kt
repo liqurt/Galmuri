@@ -1,4 +1,6 @@
-package com.ssafy.gumi107.mobile_app.features.dto
+package com.ssafy.gumi107.mobile_app.dto
+
+import com.ssafy.gumi107.mobile_app.dto.Country
 
 
 data class Location(

@@ -1,4 +1,4 @@
-package com.ssafy.gumi107.mobile_app.features.dto
+package com.ssafy.gumi107.mobile_app.dto
 
 import java.io.Serializable
 

@@ -23,12 +23,12 @@
 
     <fragment
         android:id="@+id/tripDetailFragment"
-        android:name="com.ssafy.gumi107.mobile_app.features.fragment.TripDetailFragment"
+        android:name="com.ssafy.gumi107.mobile_app.fragment.TripDetailFragment"
         android:label="fragment_trip_detail"
-        tools:layout="@layout/fragment_trip_detail" >
+        tools:layout="@layout/fragment_trip_detail">
         <argument
             android:name="trip"
-            app:argType="com.ssafy.gumi107.mobile_app.features.dto.Trip" />
+            app:argType="com.ssafy.gumi107.mobile_app.dto.Trip" />
     </fragment>
 
     <fragment

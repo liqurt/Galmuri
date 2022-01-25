@@ -15,8 +15,7 @@ class MessageFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
         binding = FragmentMessageBinding.inflate(inflater, container, false)
         return binding.root
     }

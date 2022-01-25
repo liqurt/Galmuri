@@ -5,19 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ssafy.gumi107.mobile_app.R
 import com.ssafy.gumi107.mobile_app.databinding.FragmentTravelersBinding
-import com.ssafy.gumi107.mobile_app.features.adapter.TripAdapter
-import com.ssafy.gumi107.mobile_app.features.dto.Trip
+import com.ssafy.gumi107.mobile_app.adapter.TripAdapter
+import com.ssafy.gumi107.mobile_app.dto.Trip
 import kotlin.random.Random
 
 class TravelersFragment : Fragment() {
-    private lateinit var navController: NavController
     private lateinit var tripAdapter: TripAdapter
     private var sampleTripList = mutableListOf<Trip>()
     private lateinit var binding: FragmentTravelersBinding
@@ -34,8 +30,8 @@ class TravelersFragment : Fragment() {
         var sampleTrip : Trip
         for(i in 1..10){
             val randomInt : Int = Random(i).nextInt(100)
-            sampleTrip = Trip((System.currentTimeMillis() + (1000*60*60*24*i*randomInt))) //Trip의 updateTime을 랜덤하게 설정
-            sampleTrip.schedule.sortBy { it.order }
+            sampleTrip = Trip((System.currentTimeMillis() + (1000*60*60*24*i*randomInt))) //Trip의 updateTime을 랜덤하게 설정. 최근순으로 정렬 하려는 것을 보여주기 위하여
+            sampleTrip.schedule.sortBy { it.order } // Trip의 생성자에서는 일부러 schedule의 순서를 뒤죽박죽으로 해놨습니다. Trip.schedule.order가 가장 큰 숫자면 '목적지' 로 가정합니다. (DB ERD 참고)
             sampleTripList.add(sampleTrip)
         }
         sampleTripList.sortByDescending { it.updateDate } // 최근순 정렬
@@ -46,7 +42,6 @@ class TravelersFragment : Fragment() {
             override fun onClick(trip : Trip, position: Int) {
                 val action = TravelersFragmentDirections.actionTabTravelersToTripDetailFragment(trip)
                 view.findNavController().navigate(action)
-//                navController.navigate(R.id.action_tab_travelers_to_tripDetailFragment)
             }
         }
         tripAdapter = TripAdapter(sampleTripList).apply {
@@ -56,7 +51,6 @@ class TravelersFragment : Fragment() {
             adapter = tripAdapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
-        navController = Navigation.findNavController(view)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
