@@ -9,7 +9,6 @@ import com.ssafy.gumi107.mobile_app.databinding.FragmentMessageBinding
 
 
 class MessageFragment : Fragment() {
-
     private lateinit var binding: FragmentMessageBinding
 
     override fun onCreateView(
@@ -19,5 +18,4 @@ class MessageFragment : Fragment() {
         binding = FragmentMessageBinding.inflate(inflater, container, false)
         return binding.root
     }
-
 }
