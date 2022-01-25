@@ -11,7 +11,7 @@
 		values (#{userId}, #{domain},#{favoriteCountry}, #{twitter}, #{facebook}, #{instagram})
 	</insert>
 	<select id="userInfo" parameterType="UserDto" resultType="UserDto">
-		select UserID, domain, age, gender, nickname, favoriteCountry, Twitter, Facebook, Instagram
+		select User.UserID, User.domain, age, gender, nickname, favoriteCountry, Twitter, Facebook, Instagram
 		from User, userOption
 		where User.UserID=#{userId} and User.domain=#{domain} 
 		and User.UserID=userOption.UserID and User.domain=userOption.domain
