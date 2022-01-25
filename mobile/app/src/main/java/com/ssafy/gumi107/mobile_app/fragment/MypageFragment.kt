@@ -1,4 +1,4 @@
-package com.ssafy.gumi107.mobile_app
+package com.ssafy.gumi107.mobile_app.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

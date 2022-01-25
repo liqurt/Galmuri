@@ -7,24 +7,42 @@
 
     <fragment
         android:id="@+id/tab_home"
-        android:name="com.ssafy.gumi107.mobile_app.HomeFragment"
+        android:name="com.ssafy.gumi107.mobile_app.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/tab_travelers"
-        android:name="com.ssafy.gumi107.mobile_app.TravelersFragment"
+        android:name="com.ssafy.gumi107.mobile_app.fragment.TravelersFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_travelers" />
+        tools:layout="@layout/fragment_travelers" >
+        <action
+            android:id="@+id/action_tab_travelers_to_tripDetailFragment"
+            app:destination="@id/tripDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tripDetailFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.fragment.TripDetailFragment"
+        android:label="fragment_trip_detail"
+        tools:layout="@layout/fragment_trip_detail" >
+        <argument
+            android:name="trip"
+            app:argType="com.ssafy.gumi107.mobile_app.features.dto.Trip" />
+    </fragment>
+
     <fragment
         android:id="@+id/tab_message"
-        android:name="com.ssafy.gumi107.mobile_app.MessageFragment"
+        android:name="com.ssafy.gumi107.mobile_app.fragment.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
+
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.ssafy.gumi107.mobile_app.MypageFragment"
+        android:name="com.ssafy.gumi107.mobile_app.fragment.MypageFragment"
         android:label="fragment_mypage"
         tools:layout="@layout/fragment_mypage" />
+
+
 
 </navigation>
