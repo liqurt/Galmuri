@@ -1,7 +1,9 @@
 package com.ssafy.galmuri.model.dto;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -10,15 +12,17 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Builder
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class TripDto {
 	@ApiModelProperty(value="여행계획 아이디. DB에 의해서 자동으로 생성됨", required = false, example = "1")
-	private int tripid;
+	private int tripId;
 	@ApiModelProperty(value="제목",required = true,example = "유럽 여행 계획")
 	private String title;
 	@ApiModelProperty(value="작성자 아이디",required = true,example = "cdh6006@gmail.com")

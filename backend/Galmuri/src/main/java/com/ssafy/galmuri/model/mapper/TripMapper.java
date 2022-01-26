@@ -8,9 +8,9 @@ import com.ssafy.galmuri.model.dto.TripDto;
 public interface TripMapper {
 	int insertTrip(TripDto tripDto);
 	int insertSchedule(List<ScheduleDto> schedule);
-	TripDto TripInfo(int tripId);
+	TripDto tripInfo(int tripId);
 	List<TripDto> findByUserId(String hostId, char hostDomain);
-	List<ScheduleDto> scheduleList(int TripId);
+	List<ScheduleDto> scheduleList(int tripId);
 	int updateTrip(TripDto tripDto);
 	int updateSchedule(ScheduleDto scheduleDto);
 	int deleteTrip(int tripId);

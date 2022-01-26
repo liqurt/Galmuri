@@ -12,7 +12,7 @@ import com.ssafy.galmuri.model.dto.TripDto;
 public interface GalmuriTripService {
 	int insertTrip(TripDto tripDto) throws SQLException;
 	int insertSchedule(List<ScheduleDto> schedule) throws SQLException;
-	TripDto TripInfo(int tripId) throws SQLException;
+	TripDto tripInfo(int tripId) throws SQLException;
 	List<TripDto> findByUserId(String hostId, char hostDomain) throws SQLException;
 	List<ScheduleDto> scheduleList(int TripId) throws SQLException;
 	int updateTrip(TripDto tripDto) throws SQLException; 

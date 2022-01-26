@@ -90,7 +90,7 @@ public class GalmuriUserController {
 		return new ResponseEntity<Map<String,Object>>(resultMap, status);
 	}
 	@PutMapping("/updateOption")
-	@ApiOperation(value = "회원 정보 변경", notes="회원 옵션 정보를 변경한다.")
+	@ApiOperation(value = "회원 옵션 변경", notes="회원 옵션 정보를 변경한다.")
 	public ResponseEntity<Map<String, Object>> updateOption(@RequestBody UserDto userDto){
 		Map<String, Object> resultMap=new HashMap<String, Object>();
 		HttpStatus status=null;
@@ -109,6 +109,7 @@ public class GalmuriUserController {
 	
 	//D
 	@DeleteMapping("/deleteUser/{userId}/{domain}")
+	@ApiOperation(value = "회원 삭제", notes="아이디와 도메인을 받아서 삭제한다.")
 	public ResponseEntity<Map<String, Object>> deleteUser(@PathVariable String userId, @PathVariable String domain, HttpServletRequest request){
 		Map<String, Object> resultMap=new HashMap<String, Object>();
 		HttpStatus status=null;

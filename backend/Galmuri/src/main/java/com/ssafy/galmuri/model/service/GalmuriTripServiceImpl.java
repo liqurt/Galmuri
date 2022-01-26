@@ -26,9 +26,8 @@ public class GalmuriTripServiceImpl implements GalmuriTripService {
 	}
 
 	@Override
-	public TripDto TripInfo(int tripId) throws SQLException {
-
-		return sqlsession.getMapper(TripMapper.class).TripInfo(tripId);
+	public TripDto tripInfo(int tripId) throws SQLException {
+		return sqlsession.getMapper(TripMapper.class).tripInfo(tripId);
 	}
 
 	@Override
@@ -37,8 +36,8 @@ public class GalmuriTripServiceImpl implements GalmuriTripService {
 	}
 
 	@Override
-	public List<ScheduleDto> scheduleList(int TripId) throws SQLException {
-		return sqlsession.getMapper(TripMapper.class).scheduleList(TripId);
+	public List<ScheduleDto> scheduleList(int tripId) throws SQLException {
+		return sqlsession.getMapper(TripMapper.class).scheduleList(tripId);
 	}
 
 	@Override
