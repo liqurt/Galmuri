@@ -33,16 +33,28 @@
 
     <fragment
         android:id="@+id/tab_message"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.MessageFragment"
-        android:label="fragment_message"
-        tools:layout="@layout/fragment_message" />
+        android:name="com.ssafy.gumi107.mobile_app.fragment.ChatRoomOutsideFragment"
+        android:label="fragment_chat_room_outside"
+        tools:layout="@layout/fragment_chat_room_outside" >
+        <action
+            android:id="@+id/action_chatRoomOutsideFragment_to_chatRoomInsideFragment"
+            app:destination="@id/chatRoomInsideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatRoomInsideFragment"
+        android:name="com.ssafy.gumi107.mobile_app.fragment.ChatRoomInsideFragment"
+        android:label="fragment_chat_room_inside"
+        tools:layout="@layout/fragment_chat_room_inside" >
+        <argument
+            android:name="chatRoom"
+            app:argType="com.ssafy.gumi107.mobile_app.dto.ChatRoom" />
+    </fragment>
 
     <fragment
         android:id="@+id/mypageFragment"
         android:name="com.ssafy.gumi107.mobile_app.fragment.MypageFragment"
         android:label="fragment_mypage"
         tools:layout="@layout/fragment_mypage" />
-
 
 
 </navigation>

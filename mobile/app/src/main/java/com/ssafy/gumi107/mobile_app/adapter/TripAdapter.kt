@@ -7,21 +7,21 @@ import com.ssafy.gumi107.mobile_app.databinding.RcvItemTripBinding
 import com.ssafy.gumi107.mobile_app.config.Constants
 import com.ssafy.gumi107.mobile_app.dto.Trip
 
-class TripAdapter(private val messageList: MutableList<Trip>)
-    : RecyclerView.Adapter<TripAdapter.MessageHolder>() {
+class TripAdapter(private val tripList: MutableList<Trip>)
+    : RecyclerView.Adapter<TripAdapter.TripHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessageHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TripHolder {
         val binding = RcvItemTripBinding.inflate(LayoutInflater.from(parent.context),parent, false)
-        return MessageHolder(binding)
+        return TripHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: MessageHolder, position: Int) {
-        holder.bindInfo(messageList[position])
+    override fun onBindViewHolder(holder: TripHolder, position: Int) {
+        holder.bindInfo(tripList[position])
     }
 
-    override fun getItemCount(): Int = messageList.size
+    override fun getItemCount(): Int = tripList.size
 
-    inner class MessageHolder(private val binding: RcvItemTripBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class TripHolder(private val binding: RcvItemTripBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindInfo(trip : Trip) {
             binding.tripTitle.text = trip.title
