@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.ssafy.gumi107.mobile_app.R
+import com.ssafy.gumi107.mobile_app.config.BaseFragment
 import com.ssafy.gumi107.mobile_app.databinding.FragmentTripDetailBinding
 import com.ssafy.gumi107.mobile_app.config.Constants
 import com.ssafy.gumi107.mobile_app.dto.Trip
 
-class TripDetailFragment : Fragment() {
+class TripDetailFragment : BaseFragment<FragmentTripDetailBinding>(
+    FragmentTripDetailBinding::bind, R.layout.fragment_trip_detail
+) {
 
-    private lateinit var binding : FragmentTripDetailBinding
     private var trip: Trip? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,14 +23,6 @@ class TripDetailFragment : Fragment() {
         arguments?.let {
             trip = it.getSerializable("trip") as Trip
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentTripDetailBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

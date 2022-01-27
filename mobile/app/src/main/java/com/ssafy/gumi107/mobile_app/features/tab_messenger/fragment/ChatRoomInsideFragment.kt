@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.ssafy.gumi107.mobile_app.R
+import com.ssafy.gumi107.mobile_app.config.BaseFragment
 import com.ssafy.gumi107.mobile_app.databinding.FragmentChatRoomInsideBinding
 import com.ssafy.gumi107.mobile_app.dto.ChatRoom
 
-class ChatRoomInsideFragment : Fragment() {
-    private lateinit var binding : FragmentChatRoomInsideBinding
+class ChatRoomInsideFragment : BaseFragment<FragmentChatRoomInsideBinding>(
+    FragmentChatRoomInsideBinding::bind, R.layout.fragment_chat_room_inside
+) {
     private var chatRoom : ChatRoom? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,14 +20,6 @@ class ChatRoomInsideFragment : Fragment() {
         arguments?.let {
             chatRoom = it.getSerializable("chatRoom") as ChatRoom
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentChatRoomInsideBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
