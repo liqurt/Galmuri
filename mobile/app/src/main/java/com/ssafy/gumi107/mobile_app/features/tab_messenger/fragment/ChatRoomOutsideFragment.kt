@@ -8,24 +8,19 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.ssafy.gumi107.mobile_app.R
+import com.ssafy.gumi107.mobile_app.config.BaseFragment
 import com.ssafy.gumi107.mobile_app.features.tab_messenger.adapter.ChatRoomOutsideAdapter
 import com.ssafy.gumi107.mobile_app.databinding.FragmentChatRoomOutsideBinding
 import com.ssafy.gumi107.mobile_app.dto.ChatRoom
 import kotlin.random.Random
 
-
-class ChatRoomOutsideFragment : Fragment() {
+class ChatRoomOutsideFragment :
+    BaseFragment<FragmentChatRoomOutsideBinding>
+        (FragmentChatRoomOutsideBinding::bind, R.layout.fragment_chat_room_outside) {
     private lateinit var chatRoomOutsideAdapter: ChatRoomOutsideAdapter
     private var sampleChatRoomOutsideList = mutableListOf<ChatRoom>()
-    private lateinit var binding: FragmentChatRoomOutsideBinding
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentChatRoomOutsideBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     private fun initChatRoomOutsideList() {
         var sampleChatRoomOutside: ChatRoom
@@ -40,7 +35,8 @@ class ChatRoomOutsideFragment : Fragment() {
     private fun initRecyclerView(view: View) {
         val listener = object : ChatRoomOutsideAdapter.ChatRoomOutsideClickListener {
             override fun onClick(chatRoom: ChatRoom, position: Int) {
-                val action = ChatRoomOutsideFragmentDirections.actionChatRoomOutsideFragmentToChatRoomInsideFragment(
+                val action =
+                    ChatRoomOutsideFragmentDirections.actionChatRoomOutsideFragmentToChatRoomInsideFragment(
                         chatRoom)
                 view.findNavController().navigate(action)
             }

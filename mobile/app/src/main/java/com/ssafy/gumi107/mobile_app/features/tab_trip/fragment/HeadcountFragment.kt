@@ -6,6 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ssafy.gumi107.mobile_app.R
+import com.ssafy.gumi107.mobile_app.config.BaseFragment
+import com.ssafy.gumi107.mobile_app.databinding.FragmentApplyBinding
+import com.ssafy.gumi107.mobile_app.databinding.FragmentHeadcountBinding
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,13 +20,8 @@ private const val ARG_PARAM2 = "param2"
  * Use the [HeadcountFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HeadcountFragment : Fragment() {
+class HeadcountFragment : BaseFragment<FragmentHeadcountBinding>(
+    FragmentHeadcountBinding::bind, R.layout.fragment_headcount
+) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_headcount, container, false)
-    }
 }

@@ -1,31 +1,22 @@
 package com.ssafy.gumi107.mobile_app.features.tab_trip.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.ssafy.gumi107.mobile_app.databinding.FragmentTravelersBinding
+import com.ssafy.gumi107.mobile_app.R
+import com.ssafy.gumi107.mobile_app.config.BaseFragment
+import com.ssafy.gumi107.mobile_app.databinding.FragmentTripListBinding
 import com.ssafy.gumi107.mobile_app.features.tab_trip.adapter.TripAdapter
 import com.ssafy.gumi107.mobile_app.dto.Trip
 import kotlin.random.Random
 
-class TripListFragment : Fragment() {
+class TripListFragment : BaseFragment<FragmentTripListBinding>(
+    FragmentTripListBinding::bind, R.layout.fragment_trip_list
+) {
     private lateinit var tripAdapter: TripAdapter
     private var sampleTripList = mutableListOf<Trip>()
-    private lateinit var binding: FragmentTravelersBinding
-
-    // Binding 하는거 super class 에서 상속받는다면..?
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        binding = FragmentTravelersBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     private fun initTripList() {
         var sampleTrip: Trip

@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.ssafy.gumi107.mobile_app.R
+import com.ssafy.gumi107.mobile_app.config.BaseFragment
+import com.ssafy.gumi107.mobile_app.databinding.FragmentApplyBinding
 
-class ApplyFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_apply, container, false)
-    }
+class ApplyFragment : BaseFragment<FragmentApplyBinding>(
+    FragmentApplyBinding::bind, R.layout.fragment_apply
+) {
 
 }
