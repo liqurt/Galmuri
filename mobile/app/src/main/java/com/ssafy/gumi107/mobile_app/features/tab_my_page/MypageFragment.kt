@@ -1,4 +1,4 @@
-package com.ssafy.gumi107.mobile_app.fragment
+package com.ssafy.gumi107.mobile_app.features.tab_my_page
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

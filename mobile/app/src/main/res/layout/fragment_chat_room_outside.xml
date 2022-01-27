@@ -5,7 +5,7 @@
     android:id="@+id/fragment_messege"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ChatRoomOutsideFragment">
+    tools:context=".features.tab_messenger.fragment.ChatRoomOutsideFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvChatRoomOutside"
