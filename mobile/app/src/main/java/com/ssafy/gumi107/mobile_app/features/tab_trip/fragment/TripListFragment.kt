@@ -13,11 +13,12 @@ import com.ssafy.gumi107.mobile_app.features.tab_trip.adapter.TripAdapter
 import com.ssafy.gumi107.mobile_app.dto.Trip
 import kotlin.random.Random
 
-class TravelersFragment : Fragment() {
+class TripListFragment : Fragment() {
     private lateinit var tripAdapter: TripAdapter
     private var sampleTripList = mutableListOf<Trip>()
     private lateinit var binding: FragmentTravelersBinding
 
+    // Binding 하는거 super class 에서 상속받는다면..?
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -41,7 +42,7 @@ class TravelersFragment : Fragment() {
     private fun initRecyclerView(view: View) {
         val listener = object : TripAdapter.TripClickListener {
             override fun onClick(trip: Trip, position: Int) {
-                val action = TravelersFragmentDirections.actionTabTravelersToTripDetailFragment(trip)
+                val action = TripListFragmentDirections.actionTabTravelersToTripDetailFragment(trip)
                 view.findNavController().navigate(action)
             }
         }
