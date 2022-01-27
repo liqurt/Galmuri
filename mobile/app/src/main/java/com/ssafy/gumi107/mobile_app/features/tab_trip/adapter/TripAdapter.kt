@@ -1,4 +1,4 @@
-package com.ssafy.gumi107.mobile_app.adapter
+package com.ssafy.gumi107.mobile_app.features.tab_trip.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

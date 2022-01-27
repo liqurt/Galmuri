@@ -5,7 +5,7 @@
     android:id="@+id/fragment_mypage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.MypageFragment">
+    tools:context=".features.tab_my_page.MypageFragment">
 
     <TextView
         android:id="@+id/tv_mypage"

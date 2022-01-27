@@ -1,4 +1,4 @@
-package com.ssafy.gumi107.mobile_app.adapter
+package com.ssafy.gumi107.mobile_app.features.tab_messenger.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,7 +12,7 @@ class ChatRoomOutsideAdapter(private val chatRoomList: MutableList<ChatRoom>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): ChatRoomOutsideAdapter.ChatRoomOutsideHolder {
+    ): ChatRoomOutsideHolder {
         val binding = RcvItemChatRoomOutsideBinding.inflate(LayoutInflater.from(parent.context),
             parent,
             false)

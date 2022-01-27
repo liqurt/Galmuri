@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/tab_home"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.HomeFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/tab_travelers"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.TravelersFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TravelersFragment"
         android:label="fragment_second"
         tools:layout="@layout/fragment_travelers" >
         <action
@@ -23,7 +23,7 @@
 
     <fragment
         android:id="@+id/tripDetailFragment"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.TripDetailFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TripDetailFragment"
         android:label="fragment_trip_detail"
         tools:layout="@layout/fragment_trip_detail">
         <argument
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/tab_message"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.ChatRoomOutsideFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_messenger.fragment.ChatRoomOutsideFragment"
         android:label="fragment_chat_room_outside"
         tools:layout="@layout/fragment_chat_room_outside" >
         <action
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatRoomInsideFragment"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.ChatRoomInsideFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_messenger.fragment.ChatRoomInsideFragment"
         android:label="fragment_chat_room_inside"
         tools:layout="@layout/fragment_chat_room_inside" >
         <argument
@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.ssafy.gumi107.mobile_app.fragment.MypageFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.MypageFragment"
         android:label="fragment_mypage"
         tools:layout="@layout/fragment_mypage" />
 
