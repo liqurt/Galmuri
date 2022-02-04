@@ -11,7 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApplicationClass : Application() {
-    private val serverIP = "192.168.0.3" // 본인 집에서 cmd켜고 ipconfig 입력 해서 확인 할 것.
+    private val serverIP = "192.168.0.3" // 본인 집에서 cmd켜고 ipconfig 입력 해서 확인 할 것. 이건 윤승일 집 IP 입니다...
     private val serverUrl = "http://$serverIP:9999/galmuri/"
 
     companion object {
@@ -24,9 +24,6 @@ class ApplicationClass : Application() {
             .baseUrl(serverUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-        Log.d("TAG", "onCreate at ApplicationClass: ")
-
         testInsert()
     }
 
