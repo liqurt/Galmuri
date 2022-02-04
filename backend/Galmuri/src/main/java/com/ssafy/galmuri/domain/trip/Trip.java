@@ -1,30 +1,27 @@
 package com.ssafy.galmuri.domain.trip;
 
-import com.ssafy.galmuri.domain.user.UserID;
-import lombok.Builder;
+import com.ssafy.galmuri.domain.BaseTimeEntity;
+import com.ssafy.galmuri.domain.user.User;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
-@IdClass(UserID.class)
+@AllArgsConstructor
 @Entity
-public class Trip {
+public class Trip extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long tripId;
 
     @Column(nullable = false)
     private String title;
-
-    @Column(nullable = false)
-    private String hostId;
-
-    @Column(nullable = false)
-    private char hostDomain;
 
     @Column(nullable = false)
     private LocalDateTime startDate;
@@ -46,19 +43,5 @@ public class Trip {
 
     @Column(nullable = false)
     private boolean isDone;
-
-    @Builder
-    public Trip(String title,String hostId,char hostDomain,LocalDateTime startDate,LocalDateTime endDate,String theme,int maxMember,String comment){
-        this.title=title;
-        this.hostId=hostId;
-        this.hostDomain=hostDomain;
-        this.startDate=startDate;
-        this.endDate=endDate;
-        this.theme=theme;
-        this.maxMember=maxMember;
-        this.nowMember=1;
-        this.comment=comment;
-        this.isDone=false;
-    }
 
 }

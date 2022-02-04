@@ -1,19 +1,21 @@
 package com.ssafy.galmuri.domain.user;
 
+import com.ssafy.galmuri.domain.BaseTimeEntity;
+import com.ssafy.galmuri.domain.trip.Country;
+import com.ssafy.galmuri.domain.trip.Trip;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
 @Entity
 @IdClass(UserID.class)
-public class User {
+public class User extends BaseTimeEntity {
     @Id
     @Column(nullable = false)
     private String userId;
@@ -37,8 +39,9 @@ public class User {
     @Column
     private int totalVote;
 
-    @Column(length = 3)
-    private String favoriteCountry;
+    @OneToOne
+    @JoinColumn(name = "countryCode")
+    private Country countryCode;
 
     @Column
     private String facebook;
@@ -49,22 +52,4 @@ public class User {
     @Column
     private String twitter;
 
-    @Builder
-    public User(String userId,char domain, int age,boolean gender,String nickName){
-        this.userId=userId;
-        this.domain=domain;
-        this.age=age;
-        this.gender=gender;
-        this.nickName=nickName;
-        this.totalScore=0.0f;
-        this.totalVote=0;
-    }
-    @Builder
-    public User(String userId,char domain, int age,boolean gender,String nickName,String favoriteCountry,String facebook,String instagram,String twitter){
-        this(userId, domain, age, gender, nickName);
-        this.favoriteCountry=favoriteCountry;
-        this.facebook=facebook;
-        this.instagram=instagram;
-        this.twitter=twitter;
-    }
 }
