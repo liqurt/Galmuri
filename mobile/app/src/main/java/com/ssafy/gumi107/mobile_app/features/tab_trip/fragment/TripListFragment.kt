@@ -46,9 +46,17 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
         }
     }
 
+    private fun initNewTrip(){
+        binding.fabNewTrip.setOnClickListener {
+            val action = TripListFragmentDirections.actionTabTravelersToTripMakeFragment()
+            view?.findNavController()?.navigate(action)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initTripList()
         initRecyclerView(view)
+        initNewTrip()
     }
 }
