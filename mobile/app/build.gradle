@@ -108,4 +108,7 @@ dependencies {
 
     // ViewPager2의 Indicator
     implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    // image circle 모양
+    implementation 'com.mikhaellopez:circularimageview:4.3.0'
 }
