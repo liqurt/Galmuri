@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_tab_travelers_to_tripDetailFragment"
             app:destination="@id/tripDetailFragment" />
+        <action
+            android:id="@+id/action_tab_travelers_to_tripMakeFragment"
+            app:destination="@id/tripMakeFragment" />
     </fragment>
 
     <fragment
@@ -55,6 +58,15 @@
         android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.MypageFragment"
         android:label="fragment_mypage"
         tools:layout="@layout/fragment_mypage" />
+    <fragment
+        android:id="@+id/tripMakeFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TripMakeFragment"
+        android:label="fragment_trip_make"
+        tools:layout="@layout/fragment_trip_make" >
+        <action
+            android:id="@+id/action_tripMakeFragment_to_tab_travelers"
+            app:destination="@id/tab_travelers" />
+    </fragment>
 
 
 </navigation>
