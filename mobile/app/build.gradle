@@ -106,4 +106,6 @@ dependencies {
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:2.4.0-rc01")
 
+    // ViewPager2의 Indicator
+    implementation 'com.tbuonomo:dotsindicator:4.2'
 }

@@ -9,6 +9,9 @@ import com.ssafy.gumi107.mobile_app.databinding.ActivityIntroductionBinding
 import com.ssafy.gumi107.mobile_app.dto.IntroductionPage
 import com.ssafy.gumi107.mobile_app.features.introduction.adapter.IntroductionAdapter
 import com.ssafy.gumi107.mobile_app.features.login.LoginActivity
+import androidx.viewpager.widget.ViewPager
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+
 
 class IntroductionActivity : AppCompatActivity() {
 
@@ -42,5 +45,9 @@ class IntroductionActivity : AppCompatActivity() {
             adapter = IntroductionAdapter(ArrayList(fakeIntroductionPageList))
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
         }
+
+        //Indicator 달기
+        binding.dotsIndicator.setViewPager2(binding.vp2Introduction)
+
     }
 }
