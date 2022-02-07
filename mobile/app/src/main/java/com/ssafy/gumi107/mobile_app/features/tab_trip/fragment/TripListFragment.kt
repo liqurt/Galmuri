@@ -19,15 +19,24 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
     private var sampleTripList = mutableListOf<Trip>()
 
     private fun initTripList() {
-        var sampleTrip: Trip
+        var fakeTrip : Trip
         for (i in 1..10) {
             val randomInt: Int = Random(i).nextInt(100)
-            sampleTrip =
-                Trip((System.currentTimeMillis() + (1000 * 60 * 60 * 24 * i * randomInt))) //Trip의 updateTime을 랜덤하게 설정. 최근순으로 정렬 하려는 것을 보여주기 위하여
-            sampleTrip.schedule.sortBy { it.order } // Trip의 생성자에서는 일부러 schedule의 순서를 뒤죽박죽으로 해놨습니다. Trip.schedule.order가 가장 큰 숫자면 '목적지' 로 가정합니다. (DB ERD 참고)
-            sampleTripList.add(sampleTrip)
+            fakeTrip = Trip(
+                trip_id = randomInt,
+                created_date = System.currentTimeMillis(),
+                modified_date = System.currentTimeMillis(),
+                comment = "blah",
+                done = false,
+                end_date = System.currentTimeMillis(),
+                max_member = 4,
+                now_member = 2,
+                start_date = System.currentTimeMillis(),
+                theme = "음주가무",
+                title = "놀자"
+            )
+            sampleTripList.add(fakeTrip)
         }
-        sampleTripList.sortByDescending { it.updateDate } // 최근순 정렬
     }
 
     private fun initRecyclerView(view: View) {
