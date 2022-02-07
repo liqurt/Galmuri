@@ -29,4 +29,6 @@ public class UserTrip {
 
     @Column(nullable = false)
     private boolean isOwn;
+
+
 }

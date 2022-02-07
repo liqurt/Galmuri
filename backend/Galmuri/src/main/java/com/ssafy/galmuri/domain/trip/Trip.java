@@ -1,19 +1,15 @@
 package com.ssafy.galmuri.domain.trip;
 
 import com.ssafy.galmuri.domain.BaseTimeEntity;
-import com.ssafy.galmuri.domain.user.User;
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Trip extends BaseTimeEntity {
     @Id
@@ -42,6 +38,33 @@ public class Trip extends BaseTimeEntity {
     private String comment;
 
     @Column(nullable = false)
-    private boolean isDone;
+    private boolean done;
+
+    @Builder
+    public Trip(String title,LocalDateTime startDate
+            ,LocalDateTime endDate,String theme, int maxMember
+                ,String comment,boolean done){
+        this.title=title;
+        this.startDate=startDate;
+        this.endDate=endDate;
+        this.theme=theme;
+        this.maxMember=maxMember;
+        this.nowMember=1;
+        this.comment=comment;
+        this.done=done;
+    }
+
+    public void update(String title,LocalDateTime startDate,LocalDateTime endDate
+            ,String theme, int maxMember, int nowMember
+            ,String comment,boolean done){
+        this.title=title;
+        this.startDate=startDate;
+        this.endDate=endDate;
+        this.theme=theme;
+        this.maxMember=maxMember;
+        this.nowMember=nowMember;
+        this.comment=comment;
+        this.done=done;
+    }
 
 }

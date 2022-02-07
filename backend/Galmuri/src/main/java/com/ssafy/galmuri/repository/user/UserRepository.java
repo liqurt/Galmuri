@@ -1,4 +1,4 @@
-package com.ssafy.galmuri.repository;
+package com.ssafy.galmuri.repository.user;
 
 import com.ssafy.galmuri.domain.user.User;
 import com.ssafy.galmuri.domain.user.UserID;

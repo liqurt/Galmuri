@@ -1,5 +1,6 @@
 package com.ssafy.galmuri.domain.trip;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,4 +21,9 @@ public class Country {
 
     @Column(nullable = false)
     private String continent;
+
+    @Builder
+    public Country(String countryCode){
+        this.countryCode=countryCode;
+    }
 }

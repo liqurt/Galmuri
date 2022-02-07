@@ -1,4 +1,4 @@
-package com.ssafy.galmuri.repository;
+package com.ssafy.galmuri.repository.trip;
 
 import com.ssafy.galmuri.domain.trip.TripAgeRange;
 import com.ssafy.galmuri.domain.trip.TripAgeRangeID;

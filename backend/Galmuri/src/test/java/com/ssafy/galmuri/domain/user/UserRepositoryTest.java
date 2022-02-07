@@ -1,6 +1,6 @@
 package com.ssafy.galmuri.domain.user;
 
-import com.ssafy.galmuri.repository.UserRepository;
+import com.ssafy.galmuri.repository.user.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

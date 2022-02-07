@@ -1,6 +1,6 @@
 package com.ssafy.galmuri.domain.trip;
 
-import com.ssafy.galmuri.repository.TripRepository;
+import com.ssafy.galmuri.repository.trip.TripRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
