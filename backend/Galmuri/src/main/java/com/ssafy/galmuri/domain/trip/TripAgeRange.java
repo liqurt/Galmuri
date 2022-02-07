@@ -1,6 +1,5 @@
 package com.ssafy.galmuri.domain.trip;
 
-import com.ssafy.galmuri.domain.user.UserID;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,10 +12,17 @@ import javax.persistence.*;
 public class TripAgeRange {
     @Id
     @ManyToOne
-    @JoinColumn(name="tripId")
-    private Trip trip;
+    @JoinColumn(name="tripId", referencedColumnName = "tripId")
+    private Trip tripId;
 
     @Id
     private int ageRange;
 
+    public TripAgeRange(Long tripId,int ageRange){
+        this.tripId=new Trip(tripId);
+        this.ageRange=ageRange;
+    }
+    public void update(int ageRange){
+        this.ageRange=ageRange;
+    }
 }

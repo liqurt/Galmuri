@@ -40,6 +40,9 @@ public class Trip extends BaseTimeEntity {
     @Column(nullable = false)
     private boolean done;
 
+    public Trip(Long tripId){
+        this.tripId=tripId;
+    }
     @Builder
     public Trip(String title,LocalDateTime startDate
             ,LocalDateTime endDate,String theme, int maxMember
