@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ssafy.gumi107.mobile_app.databinding.RcvItemTripBinding
-import com.ssafy.gumi107.mobile_app.config.Constants
+import com.ssafy.gumi107.mobile_app.config.Global
 import com.ssafy.gumi107.mobile_app.dto.Trip
 
 class TripAdapter(private val tripList: MutableList<Trip>)
@@ -25,10 +25,10 @@ class TripAdapter(private val tripList: MutableList<Trip>)
 
         fun bindInfo(trip : Trip) {
             binding.tripTitle.text = trip.title
-            binding.tripDestination.text = trip.schedule.last().location.locationName
-            binding.tripPeople.text = "${trip.nowMember}/${trip.maxMember}"
-            binding.tripDuration.text = "${Constants.convertLongToTime(trip.startDate)} ~ ${Constants.convertLongToTime(trip.endDate)}"
-            binding.tripUpdateDate.text = Constants.convertLongToTime(trip.updateDate)
+            binding.tripDestination.text = "여행지 이름"
+            binding.tripPeople.text = "${trip.now_member}/${trip.max_member}"
+            binding.tripDuration.text = "${Global.convertLongToTime(trip.start_date)} ~ ${Global.convertLongToTime(trip.end_date)}"
+            binding.tripUpdateDate.text = Global.convertLongToTime(trip.modified_date)
             itemView.setOnClickListener {
                 listener.onClick(trip, layoutPosition)
             }
