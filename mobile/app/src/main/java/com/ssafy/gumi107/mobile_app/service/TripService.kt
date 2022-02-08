@@ -1,8 +1,8 @@
 package com.ssafy.gumi107.mobile_app.service
 
 import android.util.Log
+import com.google.gson.Gson
 import com.ssafy.gumi107.mobile_app.api.TripApi
-import com.ssafy.gumi107.mobile_app.api.UserApi
 import com.ssafy.gumi107.mobile_app.config.ApplicationClass
 import com.ssafy.gumi107.mobile_app.config.Global
 import com.ssafy.gumi107.mobile_app.dto.Trip
@@ -15,6 +15,9 @@ class TripService {
     val onFailureMessage = "연결에 문제 있음"
 
     fun insertUser(trip: Trip) {
+        Log.d(Global.GLOBAL_LOG_TAG, Gson().toJson(trip))
+        Log.d(Global.GLOBAL_LOG_TAG, "$trip")
+
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
         call.insertTrip(trip).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -30,9 +33,9 @@ class TripService {
         })
     }
 
-    fun selectUser(trip : Trip) {
+    fun selectUser(tripid : Int) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
-        call.selectTrip(trip.trip_id).enqueue(object : Callback<Trip> {
+        call.selectTrip(tripid).enqueue(object : Callback<Trip> {
             override fun onResponse(call: Call<Trip>, response: Response<Trip>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "selectTrip was successful")
@@ -48,12 +51,13 @@ class TripService {
         })
     }
 
-    fun updateUser(trip: Trip) {
+    fun updateUser(tripid: Int ,trip: Trip) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
-        call.updateTrip(trip.trip_id, trip).enqueue(object : Callback<Unit> {
+        call.updateTrip(tripid, trip).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "updateTrip was successful")
+                    Log.d(Global.GLOBAL_LOG_TAG, "onResponse: ${response.body()}")
                 }else{
                     Log.d(Global.GLOBAL_LOG_TAG, "updateTrip was not successful")
                 }
@@ -65,9 +69,9 @@ class TripService {
         })
     }
 
-    fun deleteUser(trip: Trip) {
+    fun deleteUser(tripid : Int) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
-        call.deleteTrip(trip.trip_id).enqueue(object : Callback<Unit> {
+        call.deleteTrip(tripid).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "deleteTrip was successful")

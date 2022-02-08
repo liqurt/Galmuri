@@ -32,9 +32,9 @@ class TripDetailFragment : BaseFragment<FragmentTripDetailBinding>(
             binding.tvTitle.text = trip.title
             binding.tvComment.text = trip.comment
             binding.tvDestination.text = "목적지"
-            binding.tvStartDate.text = Global.convertLongToTime(trip.start_date)
-            binding.tvEndDate.text = Global.convertLongToTime(trip.end_date)
-            binding.tvUpdateDate.text = Global.convertLongToTime(trip.modified_date)
+//            binding.tvStartDate.text = Global.convertLongToTime(trip.start_date)
+//            binding.tvEndDate.text = Global.convertLongToTime(trip.end_date)
+//            binding.tvUpdateDate.text = Global.convertLongToTime(trip.modified_date)
         }else{
             Toast.makeText(this.requireContext(), "Error", Toast.LENGTH_SHORT).show()
         }

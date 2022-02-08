@@ -1,9 +1,13 @@
 package com.ssafy.gumi107.mobile_app.config
 
 import android.app.Application
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import com.ssafy.gumi107.mobile_app.dto.User
 import com.ssafy.gumi107.mobile_app.api.UserApi
+import com.ssafy.gumi107.mobile_app.dto.Trip
+import com.ssafy.gumi107.mobile_app.service.TripService
 import com.ssafy.gumi107.mobile_app.service.UserService
 import kotlinx.coroutines.*
 import retrofit2.Call
@@ -11,6 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.time.LocalDateTime
 
 class ApplicationClass : Application() {
 
@@ -23,6 +28,7 @@ class ApplicationClass : Application() {
         lateinit var retrofit: Retrofit
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
         retrofit = Retrofit.Builder()
@@ -30,8 +36,29 @@ class ApplicationClass : Application() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        userCRUDTestWithFakeUser()
+//        userCRUDTestWithFakeUser()
+        tripCRUDTestWithFakeUser()
 
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun tripCRUDTestWithFakeUser() {
+        val someNumber1 = 2
+        val nowTime = LocalDateTime.now()
+        val fakeTrip1 = Trip(
+            comment = "fake$someNumber1",
+            done = false,
+            end_date = nowTime,
+            max_member = someNumber1,
+            start_date = nowTime,
+            theme = "fake$someNumber1",
+            title = "fake$someNumber1"
+        )
+        val ts = TripService()
+//        ts.insertUser(fakeTrip1)
+//        ts.selectUser(1)
+//        ts.updateUser(1, fakeTrip1)
+        ts.deleteUser(1)
     }
 
     private fun userCRUDTestWithFakeUser() {
