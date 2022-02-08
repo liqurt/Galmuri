@@ -1,6 +1,6 @@
 package com.ssafy.gumi107.mobile_app.dto
 
-data class UserTrip(
+data class UserTrip( // 변수이름 카멜로 해라!
     var is_confirmed : Boolean, // 여행의 참가자인가?
     var is_own : Boolean, // 여행 주최자(호스트) 인가?
     var user_id : String, // PK FK 오직 1글자

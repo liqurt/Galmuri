@@ -5,24 +5,23 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface TripApi{
-    @DELETE("/trip/delete/{tripId}")
-    fun deleteTrip(
-        @Path("tripId") tripId : Int
-    ) : Call<Unit>
+
+    @POST("/trip/register/")
+    fun insertTrip(@Body trip : Trip) : Call<Unit>
 
     @GET("/trip/find/{tripId}")
     fun selectTrip(
-        @Path("tripId") tripId: Int
+        @Path("tripId") tripId: Long
     ) : Call<Trip>
-
-    @POST("/trip/register")
-    fun insertTrip(
-        @Body trip : Trip
-    ) : Call<Unit>
 
     @PUT("/trip/update/{tripId}")
     fun updateTrip(
-        @Path("tripId") tripId: Int,
+        @Path("tripId") tripId: Long,
         @Body trip : Trip
+    ) : Call<Unit>
+
+    @DELETE("/trip/delete/{tripId}")
+    fun deleteTrip(
+        @Path("tripId") tripId : Long
     ) : Call<Unit>
 }

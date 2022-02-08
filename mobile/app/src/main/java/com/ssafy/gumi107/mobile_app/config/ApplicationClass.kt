@@ -2,20 +2,14 @@ package com.ssafy.gumi107.mobile_app.config
 
 import android.app.Application
 import android.os.Build
-import android.util.Log
 import androidx.annotation.RequiresApi
+import com.google.gson.GsonBuilder
 import com.ssafy.gumi107.mobile_app.dto.User
-import com.ssafy.gumi107.mobile_app.api.UserApi
 import com.ssafy.gumi107.mobile_app.dto.Trip
 import com.ssafy.gumi107.mobile_app.service.TripService
 import com.ssafy.gumi107.mobile_app.service.UserService
-import kotlinx.coroutines.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.time.LocalDateTime
 
 class ApplicationClass : Application() {
 
@@ -31,34 +25,60 @@ class ApplicationClass : Application() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
+
+        val gson = GsonBuilder().setPrettyPrinting().create()
+
         retrofit = Retrofit.Builder()
             .baseUrl(serverUrl)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
-//        userCRUDTestWithFakeUser()
+        userCRUDTestWithFakeUser()
         tripCRUDTestWithFakeUser()
 
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun tripCRUDTestWithFakeUser() {
-        val someNumber1 = 2
-        val nowTime = LocalDateTime.now()
+        val delay = 100L
+        val someNumber1 = 100
+        val someNumber2 = 200
         val fakeTrip1 = Trip(
-            comment = "fake$someNumber1",
+            comment = "android$someNumber1",
             done = false,
-            end_date = nowTime,
-            max_member = someNumber1,
-            start_date = nowTime,
-            theme = "fake$someNumber1",
-            title = "fake$someNumber1"
+            endDate = System.currentTimeMillis(),
+            maxMember = someNumber1,
+            startDate = System.currentTimeMillis(),
+            theme = "android$someNumber1",
+            title = "android$someNumber1"
+        )
+        val fakeTrip2 = Trip(
+            comment = "android$someNumber2",
+            done = false,
+            endDate = System.currentTimeMillis(),
+            maxMember = someNumber2,
+            startDate = System.currentTimeMillis(),
+            theme = "android$someNumber2",
+            title = "android$someNumber2"
         )
         val ts = TripService()
-//        ts.insertUser(fakeTrip1)
-//        ts.selectUser(1)
-//        ts.updateUser(1, fakeTrip1)
-        ts.deleteUser(1)
+        ts.insertTrip(fakeTrip1)
+        Thread.sleep(delay)
+        ts.insertTrip(fakeTrip2)
+        Thread.sleep(delay)
+
+        fakeTrip2.comment="변수 이름은 카멜케이스"
+        val fakeTrip2Id = 3L // 지금은 Join을 통해서 TripID를 따로 받아올수 없기에 임의로 설정해 두었습니다. DB의 테이블 보시고 직접 이 값을 수정해주세요.
+        ts.updateTrip(fakeTrip2Id, fakeTrip2)
+        Thread.sleep(delay)
+
+        ts.selectTrip(fakeTrip2Id)
+        Thread.sleep(delay)
+
+        val fakeTrip1Id = 4L
+        ts.deleteTrip(fakeTrip1Id)
+        Thread.sleep(delay)
+
+        // fakeTrip2만 남고, comment가 변경이 되었다면 OK
     }
 
     private fun userCRUDTestWithFakeUser() {
