@@ -20,10 +20,10 @@ public class Trip extends BaseTimeEntity {
     private String title;
 
     @Column(nullable = false)
-    private LocalDateTime startDate;
+    private Long startDate;
 
     @Column(nullable = false)
-    private LocalDateTime endDate;
+    private Long endDate;
 
     @Column(nullable = false)
     private String theme;
@@ -44,8 +44,8 @@ public class Trip extends BaseTimeEntity {
         this.tripId=tripId;
     }
     @Builder
-    public Trip(String title,LocalDateTime startDate
-            ,LocalDateTime endDate,String theme, int maxMember
+    public Trip(String title,Long startDate
+            ,Long endDate,String theme, int maxMember
                 ,String comment,boolean done){
         this.title=title;
         this.startDate=startDate;
@@ -57,7 +57,7 @@ public class Trip extends BaseTimeEntity {
         this.done=done;
     }
 
-    public void update(String title,LocalDateTime startDate,LocalDateTime endDate
+    public void update(String title,Long startDate,Long endDate
             ,String theme, int maxMember, int nowMember
             ,String comment,boolean done){
         this.title=title;

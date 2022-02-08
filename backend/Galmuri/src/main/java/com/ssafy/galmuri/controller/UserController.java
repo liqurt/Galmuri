@@ -29,6 +29,4 @@ public class UserController {
     public String deleteByIdAndDomain(@PathVariable String userId, @PathVariable char domain){
         return userService.deleteByIdAndDomain(userId,domain);
     }
-
-
 }

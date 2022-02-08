@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @Builder
 public class TripCreateDto {
     private String title;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private Long startDate;
+    private Long endDate;
     private String theme;
     private int maxMember;
     private String comment;
