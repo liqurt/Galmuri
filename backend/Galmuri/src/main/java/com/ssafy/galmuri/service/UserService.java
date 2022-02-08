@@ -2,9 +2,9 @@ package com.ssafy.galmuri.service;
 
 import com.ssafy.galmuri.domain.user.User;
 import com.ssafy.galmuri.domain.user.UserID;
-import com.ssafy.galmuri.dto.UserCreateDto;
-import com.ssafy.galmuri.dto.UserReadDto;
-import com.ssafy.galmuri.dto.UserUpdateDto;
+import com.ssafy.galmuri.dto.user.UserCreateDto;
+import com.ssafy.galmuri.dto.user.UserReadDto;
+import com.ssafy.galmuri.dto.user.UserUpdateDto;
 import com.ssafy.galmuri.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
 package com.ssafy.galmuri.controller;
 
-import com.ssafy.galmuri.dto.UserCreateDto;
-import com.ssafy.galmuri.dto.UserReadDto;
-import com.ssafy.galmuri.dto.UserUpdateDto;
+import com.ssafy.galmuri.dto.user.UserCreateDto;
+import com.ssafy.galmuri.dto.user.UserReadDto;
+import com.ssafy.galmuri.dto.user.UserUpdateDto;
 import com.ssafy.galmuri.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

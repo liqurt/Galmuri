@@ -1,5 +1,6 @@
 package com.ssafy.galmuri.domain.trip;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,17 +9,15 @@ import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
+@IdClass(ScheduleID.class)
 @Entity
 public class Schedule {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long scheduleId;
-
     @ManyToOne
-    @JoinColumn(name = "tripId",referencedColumnName = "tripId",nullable = false)
-    private Trip trip;
+    @JoinColumn(name = "tripId", referencedColumnName = "tripId")
+    private Trip tripId;
 
-    @Column(nullable = false)
+    @Id
     private int tripOrder;
 
     @Column(nullable = false)
@@ -37,5 +36,24 @@ public class Schedule {
     @Column
     private float longitude;
 
+    @Builder
+    public Schedule(Long tripId,int tripOrder,LocalDateTime time,
+            String location,String country,float latitude, float longitude){
+        this.tripId=new Trip(tripId);
+        this.tripOrder=tripOrder;
+        this.time=time;
+        this.location=location;
+        this.country=new Country(country);
+        this.latitude=latitude;
+        this.longitude=longitude;
+    }
+
+    public void update(LocalDateTime time,String location,String country,float latitude, float longitude){
+        this.time=time;
+        this.location=location;
+        this.country=new Country(country);
+        this.latitude=latitude;
+        this.longitude=longitude;
+    }
 
 }

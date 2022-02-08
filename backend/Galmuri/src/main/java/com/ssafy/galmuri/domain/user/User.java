@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -17,12 +15,12 @@ import java.util.List;
 @IdClass(UserID.class)
 public class User extends BaseTimeEntity {
     @Id
-    @Column(nullable = false)
+    @Column(name = "userId")
     private String userId;
 
     @Id
-    @Column(nullable = false)
-    private char domain;
+    @Column(name = "domain")
+    private Character domain;
 
     @Column(nullable = false)
     private int age;
@@ -34,10 +32,10 @@ public class User extends BaseTimeEntity {
     private String nickName;
 
     @Column
-    private float totalScore;
+    private Float totalScore;
 
     @Column
-    private int totalVote;
+    private Integer totalVote;
 
     @OneToOne
     @JoinColumn(name = "countryCode")
@@ -53,7 +51,7 @@ public class User extends BaseTimeEntity {
     private String twitter;
 
     @Builder
-    public User(String userId,char domain,int age,boolean gender
+    public User(String userId,Character domain,int age,boolean gender
             ,String nickName,String countryCode,String facebook
             ,String instagram,String twitter){
         this.userId=userId;
@@ -68,6 +66,10 @@ public class User extends BaseTimeEntity {
         this.instagram=instagram;
         this.twitter=twitter;
     }
+    public User(String userId,char domain){
+        this.userId=userId;
+        this.domain=domain;
+    }
     public void update(int age,boolean gender
             ,String nickName,int totalVote,float totalScore
             ,String countryCode,String facebook
@@ -81,6 +83,9 @@ public class User extends BaseTimeEntity {
         this.facebook=facebook;
         this.instagram=instagram;
         this.twitter=twitter;
+    }
+    public Character getDomain(){
+        return domain;
     }
 
 }

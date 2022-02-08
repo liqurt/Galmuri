@@ -1,16 +1,16 @@
 package com.ssafy.galmuri.domain.user;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
 import java.io.Serializable;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @EqualsAndHashCode
 public class UserID implements Serializable {
     private String userId;
-    private char domain;
+    private Character domain;
 }

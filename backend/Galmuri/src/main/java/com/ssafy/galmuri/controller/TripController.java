@@ -1,8 +1,8 @@
 package com.ssafy.galmuri.controller;
 
-import com.ssafy.galmuri.dto.TripCreateDto;
-import com.ssafy.galmuri.dto.TripReadDto;
-import com.ssafy.galmuri.dto.TripUpdateDto;
+import com.ssafy.galmuri.dto.trip.TripCreateDto;
+import com.ssafy.galmuri.dto.trip.TripReadDto;
+import com.ssafy.galmuri.dto.trip.TripUpdateDto;
 import com.ssafy.galmuri.service.TripService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

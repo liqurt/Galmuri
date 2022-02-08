@@ -14,8 +14,11 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class TripAgeRangeID implements Serializable {
-    @ManyToOne
-    @JoinColumn(name="tripId")
-    private Trip trip;
+    private Long tripId;
     private int ageRange;
+
+    public TripAgeRangeID(TripAgeRange tripAgeRange){
+        this.tripId=tripAgeRange.getTripId().getTripId();
+        this.ageRange=tripAgeRange.getAgeRange();
+    }
 }

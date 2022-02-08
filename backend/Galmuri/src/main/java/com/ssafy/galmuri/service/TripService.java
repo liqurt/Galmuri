@@ -1,9 +1,9 @@
 package com.ssafy.galmuri.service;
 
 import com.ssafy.galmuri.domain.trip.Trip;
-import com.ssafy.galmuri.dto.TripCreateDto;
-import com.ssafy.galmuri.dto.TripReadDto;
-import com.ssafy.galmuri.dto.TripUpdateDto;
+import com.ssafy.galmuri.dto.trip.TripCreateDto;
+import com.ssafy.galmuri.dto.trip.TripReadDto;
+import com.ssafy.galmuri.dto.trip.TripUpdateDto;
 import com.ssafy.galmuri.repository.trip.TripRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
