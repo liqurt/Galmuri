@@ -14,10 +14,7 @@ class TripService {
 
     val onFailureMessage = "연결에 문제 있음"
 
-    fun insertUser(trip: Trip) {
-        Log.d(Global.GLOBAL_LOG_TAG, Gson().toJson(trip))
-        Log.d(Global.GLOBAL_LOG_TAG, "$trip")
-
+    fun insertTrip(trip: Trip) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
         call.insertTrip(trip).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
@@ -33,7 +30,7 @@ class TripService {
         })
     }
 
-    fun selectUser(tripid : Int) {
+    fun selectTrip(tripid : Long) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
         call.selectTrip(tripid).enqueue(object : Callback<Trip> {
             override fun onResponse(call: Call<Trip>, response: Response<Trip>) {
@@ -51,9 +48,9 @@ class TripService {
         })
     }
 
-    fun updateUser(tripid: Int ,trip: Trip) {
+    fun updateTrip(tripId: Long, trip: Trip) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
-        call.updateTrip(tripid, trip).enqueue(object : Callback<Unit> {
+        call.updateTrip(tripId, trip).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "updateTrip was successful")
@@ -69,9 +66,9 @@ class TripService {
         })
     }
 
-    fun deleteUser(tripid : Int) {
+    fun deleteTrip(tripId : Long) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
-        call.deleteTrip(tripid).enqueue(object : Callback<Unit> {
+        call.deleteTrip(tripId).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "deleteTrip was successful")
