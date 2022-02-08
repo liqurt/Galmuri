@@ -27,8 +27,8 @@ class TripAdapter(private val tripList: MutableList<Trip>)
             binding.tripTitle.text = trip.title
             binding.tripDestination.text = "여행지 이름"
             binding.tripPeople.text = "${trip.now_member}/${trip.max_member}"
-            binding.tripDuration.text = "${Global.convertLongToTime(trip.start_date)} ~ ${Global.convertLongToTime(trip.end_date)}"
-            binding.tripUpdateDate.text = Global.convertLongToTime(trip.modified_date)
+//            binding.tripDuration.text = "${Global.convertLongToTime(trip.start_date)} ~ ${Global.convertLongToTime(trip.end_date)}"
+//            binding.tripUpdateDate.text = Global.convertLongToTime(trip.modified_date)
             itemView.setOnClickListener {
                 listener.onClick(trip, layoutPosition)
             }
