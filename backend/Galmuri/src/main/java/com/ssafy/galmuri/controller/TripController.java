@@ -7,6 +7,8 @@ import com.ssafy.galmuri.service.TripService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/trip")

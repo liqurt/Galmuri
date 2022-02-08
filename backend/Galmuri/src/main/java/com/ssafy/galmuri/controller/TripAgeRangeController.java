@@ -21,10 +21,10 @@ public class TripAgeRangeController {
     public TripAgeRangeReadDto findByIdAndOrder(@PathVariable Long tripId, @PathVariable int ageRange){
         return service.findByTripAndRange(tripId,ageRange);
     }
-    @PutMapping("/update/{tripId}/{ageRange}")
-    public TripAgeRangeID update(@PathVariable Long tripId, @PathVariable int ageRange, @RequestBody TripAgeRangeUpdateDto updateDto){
-        return service.update(tripId,ageRange,updateDto);
-    }
+//    @PutMapping("/update/{tripId}/{ageRange}")
+//    public TripAgeRangeID update(@PathVariable Long tripId, @PathVariable int ageRange, @RequestBody TripAgeRangeUpdateDto updateDto){
+//        return service.update(tripId,ageRange,updateDto);
+//    }
     @DeleteMapping("/delete/{tripId}/{ageRange}")
     public TripAgeRangeID deleteByIdAndRange(@PathVariable Long tripId, @PathVariable int ageRange){
         return service.deleteByTripAndRange(tripId,ageRange);
