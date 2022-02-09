@@ -2,6 +2,7 @@ package com.ssafy.gumi107.mobile_app.config
 
 import android.app.Application
 import android.util.Log
+import com.kakao.sdk.common.KakaoSdk
 import com.ssafy.gumi107.mobile_app.dto.User
 import com.ssafy.gumi107.mobile_app.service.SomeService
 import retrofit2.Call
@@ -20,6 +21,10 @@ class ApplicationClass : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        // Kakao SDK 초기화
+        KakaoSdk.init(this,"0446899cd3996600e2ef713e92040857")
+
         retrofit = Retrofit.Builder()
             .baseUrl(serverUrl)
             .addConverterFactory(GsonConverterFactory.create())
