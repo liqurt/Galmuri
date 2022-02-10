@@ -2,6 +2,7 @@ package com.ssafy.gumi107.mobile_app.config
 
 import android.app.Application
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.google.gson.GsonBuilder
 import com.ssafy.gumi107.mobile_app.dto.User
@@ -33,8 +34,8 @@ class ApplicationClass : Application() {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
-        userCRUDTestWithFakeUser()
-        tripCRUDTestWithFakeUser()
+//        userCRUDTestWithFakeUser()
+//        tripCRUDTestWithFakeUser()
 
     }
 
