@@ -57,7 +57,14 @@
         android:id="@+id/mypageFragment"
         android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.MypageFragment"
         android:label="fragment_mypage"
-        tools:layout="@layout/fragment_mypage" />
+        tools:layout="@layout/fragment_mypage" >
+        <action
+            android:id="@+id/action_mypageFragment_to_fragment_profile2"
+            app:destination="@id/fragment_profile2" />
+        <action
+            android:id="@+id/action_mypageFragment_to_qnFeedback"
+            app:destination="@id/qnFeedback" />
+    </fragment>
     <fragment
         android:id="@+id/tripMakeFragment"
         android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TripMakeFragment"
@@ -68,13 +75,32 @@
             app:destination="@id/tab_travelers" />
         <action
             android:id="@+id/action_tripMakeFragment_to_mapDetailFragment"
-            app:destination="@id/mapDetailFragment" />
+            app:destination="@id/profileFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/mapDetailFragment"
+        android:id="@+id/profileFragment"
         android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.MapDetailFragment"
         android:label="fragment_map_detail"
         tools:layout="@layout/fragment_map_detail" />
+    <fragment
+        android:id="@+id/fragment_profile2"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_fragment_profile2_to_mypageFragment"
+            app:destination="@id/mypageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qnFeedback"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.QnFeedback"
+        android:label="fragment_qn_feedback"
+        tools:layout="@layout/fragment_qn_feedback" >
+        <action
+            android:id="@+id/action_qnFeedback_to_mypageFragment"
+            app:destination="@id/mypageFragment" />
+    </fragment>
 
 
 </navigation>

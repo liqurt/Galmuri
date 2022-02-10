@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!-- 프로필에 쓰이는 테마 -->
+    <style name="MyDatePicker" >
+        <!-- Text color -->
+        <item name="android:textColorPrimary">#3E3D3D</item>
+        <!-- Divider color -->
+        <item name="colorControlNormal">#2196F3</item>
+    </style>
 </resources>
