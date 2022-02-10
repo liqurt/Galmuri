@@ -1,8 +1,6 @@
 package com.ssafy.galmuri.dto.trip;
 
-import com.ssafy.galmuri.domain.trip.Country;
 import com.ssafy.galmuri.domain.trip.Schedule;
-import com.ssafy.galmuri.domain.trip.Trip;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

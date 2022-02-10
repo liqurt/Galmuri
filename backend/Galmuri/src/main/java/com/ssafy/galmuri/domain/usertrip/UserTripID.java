@@ -11,11 +11,11 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class UserTripID implements Serializable {
     private UserID user;
-    private Long tripId;
+    private Long trip;
 
     public UserTripID(String userId,Character domain,Long tripId){
         this.user=new UserID(userId,domain);
-        this.tripId=tripId;
+        this.trip=tripId;
     }
 
 }

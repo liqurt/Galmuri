@@ -2,13 +2,14 @@ package com.ssafy.galmuri.domain.user;
 
 import com.ssafy.galmuri.domain.BaseTimeEntity;
 import com.ssafy.galmuri.domain.trip.Country;
-import com.ssafy.galmuri.domain.trip.Trip;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 
+@ToString
 @Getter
 @NoArgsConstructor
 @Entity
