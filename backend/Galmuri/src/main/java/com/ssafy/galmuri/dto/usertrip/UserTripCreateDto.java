@@ -1,6 +1,7 @@
 package com.ssafy.galmuri.dto.usertrip;
 
 import com.ssafy.galmuri.domain.usertrip.UserTrip;
+import com.ssafy.galmuri.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

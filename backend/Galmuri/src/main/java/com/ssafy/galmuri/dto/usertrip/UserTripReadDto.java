@@ -20,7 +20,7 @@ public class UserTripReadDto {
     public UserTripReadDto(UserTrip userTrip){
         this.userId=userTrip.getUser().getUserId();
         this.domain=userTrip.getUser().getDomain();
-        this.tripId=userTrip.getTripId().getTripId();
+        this.tripId=userTrip.getTrip().getTripId();
         this.confirmed=userTrip.isConfirmed();
         this.own=userTrip.isOwn();
     }

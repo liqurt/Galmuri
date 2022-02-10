@@ -2,6 +2,7 @@ package com.ssafy.galmuri.domain.usertrip;
 
 import com.ssafy.galmuri.domain.trip.Trip;
 import com.ssafy.galmuri.domain.user.User;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -23,7 +24,7 @@ public class UserTrip {
     @Id
     @ManyToOne
     @JoinColumn(name = "tripId", referencedColumnName = "tripId")
-    private Trip tripId;
+    private Trip trip;
 
     @Column(nullable = false)
     private boolean confirmed;
@@ -31,10 +32,17 @@ public class UserTrip {
     @Column(nullable = false)
     private boolean own;
 
-
+    @Builder
+    public UserTrip(User user,Trip trip,boolean confirmed,boolean own){
+        this.user=user;
+        this.trip=trip;
+        this.confirmed=confirmed;
+        this.own=own;
+    }
+    @Builder
     public UserTrip(String userId,Character domain,Long tripId,boolean confirmed,boolean own){
         this.user=new User(userId,domain);
-        this.tripId=new Trip(tripId);
+        this.trip=new Trip(tripId);
         this.confirmed=confirmed;
         this.own=own;
     }
@@ -42,4 +50,9 @@ public class UserTrip {
         this.confirmed=confirmed;
         this.own=own;
     }
+    @Override
+    public String toString(){
+        return user+" tripId : "+trip+" confirmed : "+confirmed+" own : "+own;
+    }
+
 }

@@ -4,16 +4,16 @@ import com.ssafy.galmuri.dto.trip.TripCreateDto;
 import com.ssafy.galmuri.dto.trip.TripReadDto;
 import com.ssafy.galmuri.dto.trip.TripUpdateDto;
 import com.ssafy.galmuri.service.TripService;
+import com.ssafy.galmuri.service.UserTripService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/trip")
 public class TripController {
     private TripService tripService;
+    private UserTripService userTripService;
     @PostMapping("/register")
     public Long save(@RequestBody TripCreateDto createDto){
         return tripService.save(createDto);

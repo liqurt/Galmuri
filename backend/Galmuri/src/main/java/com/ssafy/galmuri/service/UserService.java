@@ -35,6 +35,11 @@ public class UserService {
                 .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
         return new UserReadDto(user);
     }
+    public User findUserByIdAndDomain(String userId, char domain){
+        User user=userRepository.findById(new UserID(userId,domain))
+                .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
+        return user;
+    }
     @Transactional
     public String deleteByIdAndDomain(String userId, char domain){
         userRepository.deleteById(new UserID(userId,domain));
