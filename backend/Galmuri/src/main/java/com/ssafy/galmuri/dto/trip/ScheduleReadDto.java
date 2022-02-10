@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Builder
@@ -13,14 +14,14 @@ import java.time.LocalDateTime;
 public class ScheduleReadDto {
     private Long tripId;
     private int tripOrder;
-    private LocalDateTime time;
+    private Date time;
     private String countryCode;
     private String location;
     private float latitude;
     private float longitude;
 
     public ScheduleReadDto(Schedule schedule){
-        this.tripId=schedule.getTripId().getTripId();
+        this.tripId=schedule.getTrip().getTripId();
         this.tripOrder=schedule.getTripOrder();
         this.time=schedule.getTime();
         this.countryCode=schedule.getCountry().getCountryCode();

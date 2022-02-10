@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @NoArgsConstructor
@@ -15,20 +16,9 @@ import java.time.LocalDateTime;
 public class ScheduleCreateDto {
     private Long tripId;
     private int tripOrder;
-    private LocalDateTime time;
+    private Date time;
     private String countryCode;
     private String location;
     private float latitude;
     private float longitude;
-
-    public Schedule toEntity(){
-        return Schedule.builder()
-                .tripId(tripId)
-                .tripOrder(tripOrder)
-                .time(time)
-                .country(countryCode)
-                .location(location)
-                .latitude(latitude)
-                .longitude(longitude).build();
-    }
 }

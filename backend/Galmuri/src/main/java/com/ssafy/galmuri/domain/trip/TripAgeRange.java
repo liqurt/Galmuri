@@ -13,13 +13,13 @@ public class TripAgeRange {
     @Id
     @ManyToOne
     @JoinColumn(name="tripId", referencedColumnName = "tripId")
-    private Trip tripId;
+    private Trip trip;
 
     @Id
     private int ageRange;
 
-    public TripAgeRange(Long tripId,int ageRange){
-        this.tripId=new Trip(tripId);
+    public TripAgeRange(Trip trip,int ageRange){
+        this.trip=trip;
         this.ageRange=ageRange;
     }
     public void update(int ageRange){

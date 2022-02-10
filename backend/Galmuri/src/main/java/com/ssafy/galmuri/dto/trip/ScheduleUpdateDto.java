@@ -6,13 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class ScheduleUpdateDto {
-    private LocalDateTime time;
+    private Date time;
     private String countryCode;
     private String location;
     private float latitude;

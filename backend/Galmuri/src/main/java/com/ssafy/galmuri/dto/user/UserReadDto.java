@@ -1,13 +1,7 @@
 package com.ssafy.galmuri.dto.user;
 
-import com.ssafy.galmuri.domain.trip.Country;
 import com.ssafy.galmuri.domain.user.User;
 import lombok.Getter;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Getter
 public class UserReadDto {

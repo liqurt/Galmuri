@@ -1,7 +1,6 @@
 package com.ssafy.galmuri.dto.usertrip;
 
 import com.ssafy.galmuri.domain.usertrip.UserTrip;
-import com.ssafy.galmuri.repository.user.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,8 +16,4 @@ public class UserTripCreateDto {
     private Long tripId;
     private boolean confirmed;
     private boolean own;
-
-    public UserTrip toEntity(){
-        return new UserTrip(userId,domain,tripId,confirmed,own);
-    }
 }

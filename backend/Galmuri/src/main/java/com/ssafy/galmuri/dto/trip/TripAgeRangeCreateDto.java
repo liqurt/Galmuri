@@ -13,7 +13,4 @@ import lombok.NoArgsConstructor;
 public class TripAgeRangeCreateDto {
     private Long tripId;
     private int ageRange;
-    public TripAgeRange toEntity(){
-        return new TripAgeRange(tripId,ageRange);
-    }
 }
