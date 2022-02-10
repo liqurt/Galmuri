@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity() {
             }
             else if (tokenInfo != null) {
                 Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
-
-                val intent = Intent(this, HomeFragment::class.java)
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                finish()
             }
         }
     }
