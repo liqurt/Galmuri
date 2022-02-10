@@ -3,6 +3,8 @@
     package="com.ssafy.gumi107.mobile_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:name=".config.ApplicationClass"
@@ -13,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mobileapp"
         android:usesCleartextTraffic="true">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_map_api_key"/>
+
         <activity
             android:name=".features.introduction.activity.IntroductionActivity"
             android:exported="true">
@@ -22,6 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".features.login.LoginActivity"
             android:exported="true">

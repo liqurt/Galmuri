@@ -111,4 +111,11 @@ dependencies {
 
     // image circle 모양
     implementation 'com.mikhaellopez:circularimageview:4.3.0'
+
+    // TedPermisson
+    implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
+
+    // Google Map API
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+    implementation 'com.google.android.gms:play-services-location:19.0.1'
 }

@@ -17,5 +17,10 @@ class TripMakeFragment : BaseFragment<FragmentTripMakeBinding>(
             val action = TripMakeFragmentDirections.actionTripMakeFragmentToTabTravelers()
             view.findNavController().navigate(action)
         }
+
+        binding.btSchedule.setOnClickListener {
+            val action = TripMakeFragmentDirections.actionTripMakeFragmentToMapDetailFragment()
+            view.findNavController().navigate(action)
+        }
     }
 }
