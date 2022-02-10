@@ -67,10 +67,6 @@ public class User extends BaseTimeEntity {
         this.instagram=instagram;
         this.twitter=twitter;
     }
-    public User(String userId,char domain){
-        this.userId=userId;
-        this.domain=domain;
-    }
     public void update(int age,boolean gender
             ,String nickName,int totalVote,float totalScore
             ,String countryCode,String facebook

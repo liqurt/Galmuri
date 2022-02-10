@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @NoArgsConstructor
@@ -15,13 +15,14 @@ public class Schedule {
     @Id
     @ManyToOne
     @JoinColumn(name = "tripId", referencedColumnName = "tripId")
-    private Trip tripId;
+    private Trip trip;
 
     @Id
     private int tripOrder;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    private LocalDateTime time;
+    private Date time;
 
     @OneToOne
     @JoinColumn(name = "countryCode")
@@ -37,9 +38,9 @@ public class Schedule {
     private float longitude;
 
     @Builder
-    public Schedule(Long tripId,int tripOrder,LocalDateTime time,
-            String location,String country,float latitude, float longitude){
-        this.tripId=new Trip(tripId);
+    public Schedule(Trip trip,int tripOrder,Date time,
+                    String location,String country,float latitude, float longitude){
+        this.trip=trip;
         this.tripOrder=tripOrder;
         this.time=time;
         this.location=location;
@@ -47,8 +48,7 @@ public class Schedule {
         this.latitude=latitude;
         this.longitude=longitude;
     }
-
-    public void update(LocalDateTime time,String location,String country,float latitude, float longitude){
+    public void update(Date time,String location,String country,float latitude, float longitude){
         this.time=time;
         this.location=location;
         this.country=new Country(country);

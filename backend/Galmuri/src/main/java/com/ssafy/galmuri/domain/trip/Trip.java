@@ -1,15 +1,11 @@
 package com.ssafy.galmuri.domain.trip;
 
 import com.ssafy.galmuri.domain.BaseTimeEntity;
-import com.ssafy.galmuri.domain.usertrip.UserTrip;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor

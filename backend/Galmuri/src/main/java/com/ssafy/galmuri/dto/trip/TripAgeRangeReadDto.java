@@ -14,7 +14,7 @@ public class TripAgeRangeReadDto {
     private Long tripId;
     private int ageRange;
     public TripAgeRangeReadDto(TripAgeRange tripAgeRange){
-        this.tripId=tripAgeRange.getTripId().getTripId();
+        this.tripId=tripAgeRange.getTrip().getTripId();
         this.ageRange=tripAgeRange.getAgeRange();
     }
 }

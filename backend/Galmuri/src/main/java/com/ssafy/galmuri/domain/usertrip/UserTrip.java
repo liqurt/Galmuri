@@ -39,13 +39,6 @@ public class UserTrip {
         this.confirmed=confirmed;
         this.own=own;
     }
-    @Builder
-    public UserTrip(String userId,Character domain,Long tripId,boolean confirmed,boolean own){
-        this.user=new User(userId,domain);
-        this.trip=new Trip(tripId);
-        this.confirmed=confirmed;
-        this.own=own;
-    }
     public void update(boolean confirmed,boolean own){
         this.confirmed=confirmed;
         this.own=own;

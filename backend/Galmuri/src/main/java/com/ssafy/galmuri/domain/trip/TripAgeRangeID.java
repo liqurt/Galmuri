@@ -5,8 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Getter
@@ -14,11 +12,11 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class TripAgeRangeID implements Serializable {
-    private Long tripId;
+    private Long trip;
     private int ageRange;
 
     public TripAgeRangeID(TripAgeRange tripAgeRange){
-        this.tripId=tripAgeRange.getTripId().getTripId();
+        this.trip=tripAgeRange.getTrip().getTripId();
         this.ageRange=tripAgeRange.getAgeRange();
     }
 }

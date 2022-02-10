@@ -1,16 +1,10 @@
 package com.ssafy.galmuri.dto.user;
 
-import com.ssafy.galmuri.domain.trip.Country;
 import com.ssafy.galmuri.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 
 @Getter
 @NoArgsConstructor
