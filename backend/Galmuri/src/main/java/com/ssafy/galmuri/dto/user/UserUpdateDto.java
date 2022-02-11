@@ -19,5 +19,7 @@ public class UserUpdateDto {
     private String facebook;
     private String instagram;
     private String twitter;
-
+    private String comment;
+    private Long birth;
+    private String photoUrl;
 }

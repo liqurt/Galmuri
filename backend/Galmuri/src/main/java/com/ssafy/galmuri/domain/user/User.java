@@ -51,10 +51,19 @@ public class User extends BaseTimeEntity {
     @Column
     private String twitter;
 
+    @Column(columnDefinition = "TEXT")
+    private String comment;
+
+    @Column
+    private Long birth;
+
+    @Column(columnDefinition = "TEXT")
+    private String photoUrl;
+
     @Builder
     public User(String userId,Character domain,int age,boolean gender
             ,String nickName,String countryCode,String facebook
-            ,String instagram,String twitter){
+            ,String instagram,String twitter,String comment,Long birth,String photoUrl){
         this.userId=userId;
         this.domain=domain;
         this.age=age;
@@ -66,11 +75,14 @@ public class User extends BaseTimeEntity {
         this.facebook=facebook;
         this.instagram=instagram;
         this.twitter=twitter;
+        this.comment=comment;
+        this.birth=birth;
+        this.photoUrl=photoUrl;
     }
     public void update(int age,boolean gender
             ,String nickName,int totalVote,float totalScore
             ,String countryCode,String facebook
-            ,String instagram,String twitter){
+            ,String instagram,String twitter,String comment,Long birth,String photoUrl){
         this.age=age;
         this.gender=gender;
         this.nickName=nickName;
@@ -80,6 +92,9 @@ public class User extends BaseTimeEntity {
         this.facebook=facebook;
         this.instagram=instagram;
         this.twitter=twitter;
+        this.comment=comment;
+        this.birth=birth;
+        this.photoUrl=photoUrl;
     }
     public Character getDomain(){
         return domain;

@@ -16,6 +16,9 @@ public class UserReadDto {
     private String facebook;
     private String instagram;
     private String twitter;
+    private String comment;
+    private Long birth;
+    private String photoUrl;
 
     public UserReadDto(User user){
         this.userId=user.getUserId();
@@ -29,5 +32,8 @@ public class UserReadDto {
         this.facebook=user.getFacebook();
         this.instagram=user.getInstagram();
         this.twitter=user.getTwitter();
+        this.comment=user.getComment();
+        this.birth=user.getBirth();
+        this.photoUrl=user.getPhotoUrl();
     }
 }
