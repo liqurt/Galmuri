@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,6 +22,10 @@ public class UserCreateDto {
     private String facebook;
     private String instagram;
     private String twitter;
+    private String comment;
+    private Long birth;
+    private String photoUrl;
+
 
     public User toEntity(){
         return User.builder()
@@ -32,6 +38,9 @@ public class UserCreateDto {
                 .facebook(facebook)
                 .instagram(instagram)
                 .twitter(twitter)
+                .comment(comment)
+                .birth(birth)
+                .photoUrl(photoUrl)
                 .build();
     }
 

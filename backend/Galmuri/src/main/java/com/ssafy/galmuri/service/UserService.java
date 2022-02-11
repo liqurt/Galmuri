@@ -26,7 +26,8 @@ public class UserService {
                 .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
         user.update(updateDto.getAge(), updateDto.isGender(), updateDto.getNickName()
                 ,updateDto.getTotalVote(), updateDto.getTotalScore(), updateDto.getCountryCode()
-                ,updateDto.getFacebook(), updateDto.getInstagram(), updateDto.getTwitter());
+                ,updateDto.getFacebook(), updateDto.getInstagram(), updateDto.getTwitter()
+                        ,updateDto.getComment(),updateDto.getBirth(),updateDto.getPhotoUrl());
         return user.getUserId();
     }
 
