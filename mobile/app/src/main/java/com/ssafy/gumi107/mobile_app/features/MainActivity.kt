@@ -2,12 +2,10 @@ package com.ssafy.gumi107.mobile_app.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ssafy.gumi107.mobile_app.R
-import com.ssafy.gumi107.mobile_app.config.ApplicationClass
 import com.ssafy.gumi107.mobile_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -27,4 +25,5 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.findNavController()
         binding.bnvMain.setupWithNavController(navController)
     }
+
 }

@@ -1,23 +1,23 @@
 package com.ssafy.gumi107.mobile_app.features.tab_my_page
 
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.View
-import android.webkit.PermissionRequest
-import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.startActivityForResult
-import androidx.fragment.app.DialogFragment
 import androidx.navigation.findNavController
 import com.ssafy.gumi107.mobile_app.R
 import com.ssafy.gumi107.mobile_app.config.BaseFragment
+import com.ssafy.gumi107.mobile_app.config.Global
+import com.ssafy.gumi107.mobile_app.config.Global.Companion.me
+import com.ssafy.gumi107.mobile_app.config.RetrofitCallback
 import com.ssafy.gumi107.mobile_app.databinding.FragmentProfileBinding
-import java.util.jar.Manifest
+import com.ssafy.gumi107.mobile_app.dto.User
+import com.ssafy.gumi107.mobile_app.service.UserService
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(
     FragmentProfileBinding::bind, R.layout.fragment_profile
@@ -67,8 +67,58 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
 
     }
 
+    private fun getInfomationAboutMe(me: User?){
+        val us = UserService()
+        if (me != null) {
+            us.selectUser(me,SelectUserCallback())
+        }
+    }
+
+    private fun initView(){
+        Log.d(Global.GLOBAL_LOG_TAG, "initView: $me")
+        // 성별
+        if(me!!.gender){
+            binding.profileRadioMan.isChecked = true
+            binding.profileRadioWoman.isChecked = false
+        }else{
+            binding.profileRadioMan.isChecked = false
+            binding.profileRadioWoman.isChecked = true
+        }
+
+        // comment - 현재 User에 comment가 없어서 일단 트위터,페북,인스타 주소를 올렸어요
+        binding.editTextTextMultiLine.setText(
+            "페이스북 : ${me!!.facebook}\n" +
+            "인스타그램 : ${me!!.instagram}\n" +
+            "트위터 : ${me!!.twitter}"
+        )
+    }
+
+    inner class SelectUserCallback : RetrofitCallback<User> {
+        override fun onError(t: Throwable) {
+            Log.d(Global.GLOBAL_LOG_TAG, "onError: ")
+        }
+
+        override fun onSuccess(code: Int, responseData: User) {
+            Log.d(Global.GLOBAL_LOG_TAG, "onSuccess: $responseData")
+            me = responseData
+        }
+
+        override fun onFailure(code: Int) {
+            Log.d(Global.GLOBAL_LOG_TAG, "onFailure: ")
+        }
+
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        getInfomationAboutMe(me)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initView()
+
         Profilegoback() // 뒤로가기 버튼
         ProfileLogout() // 로그아웃
         //dialog
@@ -83,6 +133,19 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
             openGallery()
         }
 
+        binding.btnEditProfile.setOnClickListener {
+            meUpdate()
+            initView()
+            val us = UserService()
+            us.updateUser(me!!)
+        }
+    }
 
+    fun meUpdate(){
+        if(binding.profileRadioMan.isChecked && !binding.profileRadioWoman.isChecked){
+            me!!.gender = true
+        }else if(!binding.profileRadioMan.isChecked && binding.profileRadioWoman.isChecked){
+            me!!.gender = false
+        }
     }
 }

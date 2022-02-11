@@ -11,8 +11,8 @@ data class User(
     var twitter : String,
     var countryCode : String // FK 최대 3글자
 ) {
-//    var created_date : Long = System.currentTimeMillis()
-//    var modified_date : Long = System.currentTimeMillis()
-//    var total_score : Float = 0f
-//    var total_vote : Int = 0
+    var createdDate : Long? = null
+    var modifiedDate : Long? = null
+    var totalScore : Float? = null
+    var totalVote : Int? = null
 }
