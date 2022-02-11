@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.ui.window.Dialog
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
@@ -57,4 +58,5 @@ class MapDetailFragment :
     override fun onMapLongClick(p0: LatLng) {
         Toast.makeText(requireContext(), "$p0", Toast.LENGTH_SHORT).show()
     }
+
 }

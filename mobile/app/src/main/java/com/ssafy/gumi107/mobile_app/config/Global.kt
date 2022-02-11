@@ -1,6 +1,7 @@
 package com.ssafy.gumi107.mobile_app.config
 
 import com.ssafy.gumi107.mobile_app.api.UserApi
+import com.ssafy.gumi107.mobile_app.dto.User
 import com.ssafy.gumi107.mobile_app.service.UserService
 import java.text.SimpleDateFormat
 import java.util.*
@@ -12,6 +13,8 @@ class Global {
 
         // logcat의 태그
         const val GLOBAL_LOG_TAG = "SSAFYBREAK"
+
+        lateinit var me : User
 
         fun convertLongToTime(time: Long): String {
             val date = Date(time)
