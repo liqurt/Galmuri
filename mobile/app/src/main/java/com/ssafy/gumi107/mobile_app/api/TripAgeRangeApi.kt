@@ -5,10 +5,10 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface TripAgeRangeApi {
-    @DELETE("/tripAge/delete/{tripId}/{ageRange}")
-    fun deleteTripAgeRange(
-        @Path("tripId") tripId : Long,
-        @Path("ageRange") ageRange : Int,
+
+    @POST("/tripAge/register")
+    fun insertTripAgeRange(
+        @Body tripAgeRange: TripAgeRange
     ) : Call<Unit>
 
     @GET("/tripAge/find/{tripId}")
@@ -22,8 +22,11 @@ interface TripAgeRangeApi {
         @Path("ageRange") ageRange: Int,
     ) : Call<TripAgeRange>
 
-    @POST("/tripAge/register")
-    fun insertTripAgeRange(
-        @Body tripAgeRange: TripAgeRange
+    //update는 없음
+
+    @DELETE("/tripAge/delete/{tripId}/{ageRange}")
+    fun deleteTripAgeRange(
+        @Path("tripId") tripId : Long,
+        @Path("ageRange") ageRange : Int,
     ) : Call<Unit>
 }

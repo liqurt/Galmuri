@@ -5,11 +5,9 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface UserTripApi {
-    @DELETE ("/userTrip/delete/{userId}/{domain}/{tripId}")
-    fun deleteUserTrip(
-        @Path("domain") domain : String,
-        @Path("tripId") tripId : Long,
-        @Path("userId") userId : String,
+    @POST("/userTrip/register")
+    fun insertUserTrip(
+        @Body userTrip: UserTrip
     ) : Call<Unit>
 
     @GET("/userTrip/find/{tripId}")
@@ -19,27 +17,29 @@ interface UserTripApi {
 
     @GET("/userTrip/find/{userId}/{domain}")
     fun selectUserTripByUserIdAndDomain(
-        @Path("domain") domain: String,
         @Path("userId") userId: String,
+        @Path("domain") domain: String,
     ) : Call<List<UserTrip>>
 
     @GET("/userTrip/find/{userId}/{domain}/{tripId}")
     fun selectUserTripByUserIDAndDomainAndTripId(
-        @Path("userId") tripId: Long,
-        @Path("domain") domain: String,
         @Path("userId") userId: String,
+        @Path("domain") domain: String,
+        @Path("tripId") tripId: Long,
     ) : Call<UserTrip>
-
-    @POST("/userTrip/register")
-    fun insertUserTrip(
-        @Body userTrip: UserTrip
-    ) : Call<Unit>
 
     @PUT("/userTrip/update/{userId}/{domain}/{tripId}")
     fun updateUserTrip(
-        @Path("userId") tripId: Long,
-        @Path("domain") domain: String,
         @Path("userId") userId: String,
+        @Path("domain") domain: String,
+        @Path("tripId") tripId: Long,
         @Body userTrip: UserTrip
+    ) : Call<Unit>
+
+    @DELETE ("/userTrip/delete/{userId}/{domain}/{tripId}")
+    fun deleteUserTrip(
+        @Path("userId") userId: String,
+        @Path("domain") domain: String,
+        @Path("tripId") tripId: Long,
     ) : Call<Unit>
 }

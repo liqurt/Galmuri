@@ -5,9 +5,10 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ScheduleApi {
-    @DELETE("/schedule/delete/{tripId}/{tripOrder}/")
-    fun deleteScheduleByIdAndOrder(
-        @Path("tripId") tripId : Long
+
+    @POST("/schedule/register/")
+    fun insertSchedule(
+        @Body schedule : Schedule
     ) : Call<Unit>
 
     @GET("/schedule/find/{tripId}")
@@ -21,15 +22,16 @@ interface ScheduleApi {
         @Path("tripOrder") tripOrder :Int,
     ) : Call<Schedule>
 
-    @POST("/schedule/register/")
-    fun insertSchedule(
-        @Body schedule : Schedule
-    ) : Call<Unit>
-
     @PUT("/schedule/update/{tripId}/{tripOrder}")
     fun updateSchedule(
         @Path("tripId") tripId: Long,
         @Path("tripOrder") tripOrder: Int,
         @Body schedule: Schedule
+    ) : Call<Unit>
+
+    @DELETE("/schedule/delete/{tripId}/{tripOrder}/")
+    fun deleteScheduleByIdAndOrder(
+        @Path("tripId") tripId : Long,
+        @Path("tripOrder") tripOrder : Int
     ) : Call<Unit>
 }
