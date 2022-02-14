@@ -1,8 +1,6 @@
 package com.ssafy.gumi107.mobile_app.config
 
-import com.ssafy.gumi107.mobile_app.api.UserApi
 import com.ssafy.gumi107.mobile_app.dto.User
-import com.ssafy.gumi107.mobile_app.service.UserService
 import java.text.SimpleDateFormat
 import java.util.*
 
