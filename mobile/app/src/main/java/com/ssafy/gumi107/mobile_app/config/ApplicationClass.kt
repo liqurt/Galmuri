@@ -5,6 +5,7 @@ import android.os.Build
 import com.kakao.sdk.common.KakaoSdk
 import androidx.annotation.RequiresApi
 import com.google.gson.GsonBuilder
+import com.ssafy.gumi107.mobile_app.service.UserService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

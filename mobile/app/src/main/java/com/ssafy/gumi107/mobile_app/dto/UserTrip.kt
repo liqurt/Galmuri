@@ -5,5 +5,5 @@ data class UserTrip( // 변수이름 카멜로 해라!
     var isOwn : Boolean, // 여행 주최자(호스트) 인가?
     var userId : String, // PK FK 오직 1글자
     var domain : String, // PK FK 최대 255글자
-    var tripId : Int, // PK FK
+    var tripId : Long, // PK FK
 )
