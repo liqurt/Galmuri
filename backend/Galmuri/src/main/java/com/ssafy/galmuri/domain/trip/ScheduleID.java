@@ -1,23 +1,24 @@
 package com.ssafy.galmuri.domain.trip;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @EqualsAndHashCode
-public class ScheduleID {
-    @ManyToOne
-    @JoinColumn(name = "tripId",referencedColumnName = "tripId",nullable = false)
-    private Trip trip;
-
-    @Column(nullable = false)
+public class ScheduleID implements Serializable {
+    private Long trip;
     private int tripOrder;
+
+    public ScheduleID(Schedule schedule){
+        this.trip=schedule.getTrip().getTripId();
+        this.tripOrder=schedule.getTripOrder();
+    }
+    public ScheduleID(Long tripId,int tripOrder){
+        this.trip=tripId;
+        this.tripOrder=tripOrder;
+    }
 }

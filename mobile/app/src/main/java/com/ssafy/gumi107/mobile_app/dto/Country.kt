@@ -1,9 +1,7 @@
 package com.ssafy.gumi107.mobile_app.dto
 
 data class Country(
-    var countryCode : String,
-    var name : String,
-    var continent : String,
-){
-    constructor() : this("KOR","한국","아시아")
-}
+    var countryCode : String, // PK, 최대 3글자  ex) "KOR"
+    var continent : String, //
+    var countryName : String,
+)

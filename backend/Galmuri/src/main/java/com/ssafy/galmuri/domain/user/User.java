@@ -2,27 +2,26 @@ package com.ssafy.galmuri.domain.user;
 
 import com.ssafy.galmuri.domain.BaseTimeEntity;
 import com.ssafy.galmuri.domain.trip.Country;
-import com.ssafy.galmuri.domain.trip.Trip;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
+@ToString
 @Getter
 @NoArgsConstructor
 @Entity
 @IdClass(UserID.class)
 public class User extends BaseTimeEntity {
     @Id
-    @Column(nullable = false)
+    @Column(name = "userId")
     private String userId;
 
     @Id
-    @Column(nullable = false)
-    private char domain;
+    @Column(name = "domain")
+    private Character domain;
 
     @Column(nullable = false)
     private int age;
@@ -34,10 +33,10 @@ public class User extends BaseTimeEntity {
     private String nickName;
 
     @Column
-    private float totalScore;
+    private Float totalScore;
 
     @Column
-    private int totalVote;
+    private Integer totalVote;
 
     @OneToOne
     @JoinColumn(name = "countryCode")
@@ -52,10 +51,19 @@ public class User extends BaseTimeEntity {
     @Column
     private String twitter;
 
+    @Column(columnDefinition = "TEXT")
+    private String comment;
+
+    @Column
+    private Long birth;
+
+    @Column(columnDefinition = "TEXT")
+    private String photoUrl;
+
     @Builder
-    public User(String userId,char domain,int age,boolean gender
+    public User(String userId,Character domain,int age,boolean gender
             ,String nickName,String countryCode,String facebook
-            ,String instagram,String twitter){
+            ,String instagram,String twitter,String comment,Long birth,String photoUrl){
         this.userId=userId;
         this.domain=domain;
         this.age=age;
@@ -67,11 +75,14 @@ public class User extends BaseTimeEntity {
         this.facebook=facebook;
         this.instagram=instagram;
         this.twitter=twitter;
+        this.comment=comment;
+        this.birth=birth;
+        this.photoUrl=photoUrl;
     }
     public void update(int age,boolean gender
             ,String nickName,int totalVote,float totalScore
             ,String countryCode,String facebook
-            ,String instagram,String twitter){
+            ,String instagram,String twitter,String comment,Long birth,String photoUrl){
         this.age=age;
         this.gender=gender;
         this.nickName=nickName;
@@ -81,6 +92,12 @@ public class User extends BaseTimeEntity {
         this.facebook=facebook;
         this.instagram=instagram;
         this.twitter=twitter;
+        this.comment=comment;
+        this.birth=birth;
+        this.photoUrl=photoUrl;
+    }
+    public Character getDomain(){
+        return domain;
     }
 
 }

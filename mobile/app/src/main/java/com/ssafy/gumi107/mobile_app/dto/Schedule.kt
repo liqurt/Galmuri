@@ -1,10 +1,12 @@
 package com.ssafy.gumi107.mobile_app.dto
 
 data class Schedule(
-    var tripId : Int,
-    var location : Location,
-    var order : Int,
-    var time : Long
-){
-    constructor() : this(-1, Location(),-1,System.currentTimeMillis())
-}
+    var scheduleId : Int, // PK
+    var latitude : Float,
+    var location : String,
+    var longitude : Float,
+    var time : Long,
+    var tripOrder : Int,
+    var countryCode : String, // FK
+    var tripId : Int // FK
+)

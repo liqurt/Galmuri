@@ -2,9 +2,9 @@ package com.ssafy.galmuri.service;
 
 import com.ssafy.galmuri.domain.user.User;
 import com.ssafy.galmuri.domain.user.UserID;
-import com.ssafy.galmuri.dto.UserCreateDto;
-import com.ssafy.galmuri.dto.UserReadDto;
-import com.ssafy.galmuri.dto.UserUpdateDto;
+import com.ssafy.galmuri.dto.user.UserCreateDto;
+import com.ssafy.galmuri.dto.user.UserReadDto;
+import com.ssafy.galmuri.dto.user.UserUpdateDto;
 import com.ssafy.galmuri.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,8 @@ public class UserService {
                 .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
         user.update(updateDto.getAge(), updateDto.isGender(), updateDto.getNickName()
                 ,updateDto.getTotalVote(), updateDto.getTotalScore(), updateDto.getCountryCode()
-                ,updateDto.getFacebook(), updateDto.getInstagram(), updateDto.getTwitter());
+                ,updateDto.getFacebook(), updateDto.getInstagram(), updateDto.getTwitter()
+                        ,updateDto.getComment(),updateDto.getBirth(),updateDto.getPhotoUrl());
         return user.getUserId();
     }
 
@@ -34,6 +35,11 @@ public class UserService {
         User user=userRepository.findById(new UserID(userId,domain))
                 .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
         return new UserReadDto(user);
+    }
+    public User findUserByIdAndDomain(String userId, char domain){
+        User user=userRepository.findById(new UserID(userId,domain))
+                .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
+        return user;
     }
     @Transactional
     public String deleteByIdAndDomain(String userId, char domain){

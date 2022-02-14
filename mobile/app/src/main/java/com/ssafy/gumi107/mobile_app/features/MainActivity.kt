@@ -10,7 +10,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ssafy.gumi107.mobile_app.R
-import com.ssafy.gumi107.mobile_app.config.ApplicationClass
 import com.ssafy.gumi107.mobile_app.databinding.ActivityMainBinding
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
@@ -98,4 +97,5 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.findNavController()
         binding.bnvMain.setupWithNavController(navController)
     }
+
 }
