@@ -78,10 +78,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"></Button>
 
+
+        <!--메세지목록-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/member_list"
             android:layout_width="372dp"
-            android:layout_height="175dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:background="@color/teal_700"
             app:layout_constraintBottom_toBottomOf="parent"
