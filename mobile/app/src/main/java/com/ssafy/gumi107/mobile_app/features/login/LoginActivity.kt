@@ -4,20 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.kakao.sdk.common.KakaoSdk
 import android.util.Log
 
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
-import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
-import com.ssafy.gumi107.mobile_app.R
 import com.ssafy.gumi107.mobile_app.databinding.ActivityLoginBinding
 import com.ssafy.gumi107.mobile_app.features.MainActivity
-import com.ssafy.gumi107.mobile_app.features.tab_home.HomeFragment
-
 
 
 class LoginActivity : AppCompatActivity() {

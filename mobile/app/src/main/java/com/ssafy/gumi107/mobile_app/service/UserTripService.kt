@@ -1,11 +1,12 @@
 package com.ssafy.gumi107.mobile_app.service
 
 import android.util.Log
-import com.ssafy.gumi107.mobile_app.api.TripAgeRangeApi
 import com.ssafy.gumi107.mobile_app.api.UserTripApi
 import com.ssafy.gumi107.mobile_app.config.ApplicationClass
 import com.ssafy.gumi107.mobile_app.config.Global
-import com.ssafy.gumi107.mobile_app.dto.TripAgeRange
+import com.ssafy.gumi107.mobile_app.config.RetrofitCallback
+import com.ssafy.gumi107.mobile_app.dto.Trip
+import com.ssafy.gumi107.mobile_app.dto.User
 import com.ssafy.gumi107.mobile_app.dto.UserTrip
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,10 +35,10 @@ class UserTripService {
 
     fun selectUserTripByTripId(tripId: Long) {
         val call = ApplicationClass.retrofit.create(UserTripApi::class.java)
-        call.selectUserTripByTripId(tripId).enqueue(object : Callback<List<UserTrip>> {
+        call.selectUsersByTripId(tripId).enqueue(object : Callback<List<User>> {
             override fun onResponse(
-                call: Call<List<UserTrip>>,
-                response: Response<List<UserTrip>>,
+                call: Call<List<User>>,
+                response: Response<List<User>>,
             ) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "selectUserTripByTripId was successful")
@@ -46,30 +47,31 @@ class UserTripService {
                 }
             }
 
-            override fun onFailure(call: Call<List<UserTrip>>, t: Throwable) {
+            override fun onFailure(call: Call<List<User>>, t: Throwable) {
                 Log.d(Global.GLOBAL_LOG_TAG, "$onFailureMessage in selectUserTripByTripId: $t")
             }
         })
     }
 
-    fun selectUserTripByUserIdAndDomain(userId: String, domain: String) {
+    fun selectTripsByUserIdAndDomain(userId: String, domain: String, callback:RetrofitCallback<List<Trip>>) {
         val call = ApplicationClass.retrofit.create(UserTripApi::class.java)
-        call.selectUserTripByUserIdAndDomain(userId, domain)
-            .enqueue(object : Callback<List<UserTrip>> {
+        call.selectTripsByUserIdAndDomain(userId, domain)
+            .enqueue(object : Callback<List<Trip>> {
                 override fun onResponse(
-                    call: Call<List<UserTrip>>,
-                    response: Response<List<UserTrip>>,
+                    call: Call<List<Trip>>,
+                    response: Response<List<Trip>>,
                 ) {
                     if (response.isSuccessful) {
                         Log.d(Global.GLOBAL_LOG_TAG,
                             "selectUserTripByUserIdAndDomain was successful")
+                        callback.onSuccess(response.code(), response.body()!!)
                     } else {
                         Log.d(Global.GLOBAL_LOG_TAG,
                             "selectUserTripByUserIdAndDomain was not successful")
                     }
                 }
 
-                override fun onFailure(call: Call<List<UserTrip>>, t: Throwable) {
+                override fun onFailure(call: Call<List<Trip>>, t: Throwable) {
                     Log.d(Global.GLOBAL_LOG_TAG,
                         "$onFailureMessage in selectUserTripByUserIdAndDomain: $t")
                 }

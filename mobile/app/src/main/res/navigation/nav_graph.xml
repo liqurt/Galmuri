@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/tab_home"
-        android:name="com.ssafy.gumi107.mobile_app.features.tab_home.HomeFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_home.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 

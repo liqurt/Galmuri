@@ -124,4 +124,7 @@ dependencies {
     // Google Map API
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.android.gms:play-services-location:19.0.1'
+
+    // CardView
+    implementation("androidx.cardview:cardview:1.0.0")
 }

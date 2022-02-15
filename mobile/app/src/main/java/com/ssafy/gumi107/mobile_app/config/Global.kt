@@ -17,5 +17,9 @@ class Global {
             val sdf = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA)
             return sdf.format(date)
         }
+
+        fun getOnlyIdFromEmail(email : String) : String{
+            return email.split("@")[0]
+        }
     }
 }

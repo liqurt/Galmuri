@@ -1,5 +1,7 @@
 package com.ssafy.gumi107.mobile_app.api
 
+import com.ssafy.gumi107.mobile_app.dto.Trip
+import com.ssafy.gumi107.mobile_app.dto.User
 import com.ssafy.gumi107.mobile_app.dto.UserTrip
 import retrofit2.Call
 import retrofit2.http.*
@@ -11,15 +13,15 @@ interface UserTripApi {
     ) : Call<Unit>
 
     @GET("/userTrip/find/{tripId}")
-    fun selectUserTripByTripId(
+    fun selectUsersByTripId(
         @Path("tripId") tripId: Long
-    ) : Call<List<UserTrip>>
+    ) : Call<List<User>>
 
     @GET("/userTrip/find/{userId}/{domain}")
-    fun selectUserTripByUserIdAndDomain(
+    fun selectTripsByUserIdAndDomain(
         @Path("userId") userId: String,
         @Path("domain") domain: String,
-    ) : Call<List<UserTrip>>
+    ) : Call<List<Trip>>
 
     @GET("/userTrip/find/{userId}/{domain}/{tripId}")
     fun selectUserTripByUserIDAndDomainAndTripId(

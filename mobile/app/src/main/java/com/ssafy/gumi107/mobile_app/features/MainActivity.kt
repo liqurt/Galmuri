@@ -1,10 +1,8 @@
 package com.ssafy.gumi107.mobile_app.features
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -13,7 +11,6 @@ import com.ssafy.gumi107.mobile_app.R
 import com.ssafy.gumi107.mobile_app.databinding.ActivityMainBinding
 import com.kakao.sdk.common.util.Utility
 import com.kakao.sdk.user.UserApiClient
-import com.ssafy.gumi107.mobile_app.features.tab_home.HomeFragment
 
 
 class MainActivity : AppCompatActivity() {
