@@ -6,15 +6,145 @@
     android:layout_height="match_parent"
     tools:context=".features.tab_trip.fragment.TripListFragment">
 
+    <TextView
+        android:id="@+id/triplist_top_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:textStyle="bold"
+        android:includeFontPadding="false"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:text="List of Companions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 아시아 대륙 버튼 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/triplist_btn_asia"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toStartOf="@id/triplist_btn_america"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/triplist_top_msg" >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/triplist_asia"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아시아"
+            android:includeFontPadding="false"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="23dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <!-- 아메리카 대륙 버튼 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/triplist_btn_america"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toStartOf="@id/triplist_btn_europe"
+        app:layout_constraintStart_toEndOf="@id/triplist_btn_asia"
+        app:layout_constraintTop_toTopOf="@id/triplist_btn_asia" >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/triplist_america"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="아메리카"
+            android:includeFontPadding="false"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="23dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <!-- 유럽 대륙 버튼 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/triplist_btn_europe"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:cardCornerRadius="8dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toStartOf="@id/triplist_btn_others"
+        app:layout_constraintStart_toEndOf="@id/triplist_btn_america"
+        app:layout_constraintTop_toTopOf="@id/triplist_btn_america" >
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/triplist_europe"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="유럽"
+            android:includeFontPadding="false"
+            android:textSize="12sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="23dp"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <!-- 그 외 대륙 버튼 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/triplist_btn_others"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/triplist_btn_europe"
+        app:layout_constraintTop_toTopOf="@id/triplist_btn_europe">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/triplist_others" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="23dp"
+            android:includeFontPadding="false"
+            android:text="그 외"
+            android:textSize="12sp" />
+    </androidx.cardview.widget.CardView>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvTrip"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/triplist_btn_asia" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabNewTrip"

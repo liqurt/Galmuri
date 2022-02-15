@@ -321,12 +321,12 @@
                 android:id="@+id/mypage_hello"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="40dp"
                 android:includeFontPadding="false"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="Hello, "
                 android:textColor="#ffffff"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -338,7 +338,7 @@
                 android:includeFontPadding="false"
                 android:text="사용자 닉네임"
                 android:textColor="#ffffff"
-                android:textSize="28sp"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="@+id/mypage_hello"
                 app:layout_constraintTop_toBottomOf="@id/mypage_hello" />
@@ -358,9 +358,10 @@
 
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/profile_img"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
                 android:layout_marginEnd="40dp"
+                android:layout_marginTop="4dp"
                 android:src="@drawable/mypage_amugona"
                 app:layout_constraintBottom_toBottomOf="@+id/mypage_name"
                 app:layout_constraintEnd_toEndOf="parent"

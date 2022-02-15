@@ -51,6 +51,9 @@
         <argument
             android:name="chatRoom"
             app:argType="com.ssafy.gumi107.mobile_app.dto.ChatRoom" />
+        <action
+            android:id="@+id/action_chatRoomInsideFragment_to_tab_message"
+            app:destination="@id/tab_message" />
     </fragment>
 
     <fragment
