@@ -25,12 +25,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
                 android:text="여행 제목 : " />
 
             <TextView
                 android:id="@+id/tripTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -43,12 +47,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
                 android:text="목적지 : " />
 
             <TextView
                 android:id="@+id/tripDestination"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -61,12 +69,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
                 android:text="인원 : " />
 
             <TextView
                 android:id="@+id/tripPeople"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -79,12 +91,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
                 android:text="기간 : " />
 
             <TextView
                 android:id="@+id/tripDuration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
         </LinearLayout>
 
         <LinearLayout
@@ -97,13 +113,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
                 android:text="업데이트 : " />
 
             <TextView
                 android:id="@+id/tripUpdateDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
         </LinearLayout>
 
     </LinearLayout>

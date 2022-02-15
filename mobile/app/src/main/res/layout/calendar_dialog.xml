@@ -20,7 +20,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
-            android:hint="행선지" />
+            android:hint="행선지"
+            android:fontFamily="@font/notosans_kr_regular"
+            android:includeFontPadding="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <CalendarView

@@ -12,8 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-    </style>
 
+        <!-- font style -->
+        <item name="android:textViewStyle">@style/customTextViewFontStyle</item>
+        <item name="android:buttonStyle">@style/customButtonFontStyle</item>
+        <item name="android:editTextStyle">@style/customEditTextFontStyle</item>
+        <item name="android:radioButtonStyle">@style/customRadioButtonFontStyle</item>
+        <item name="android:checkboxStyle">@style/customCheckboxFontStyle</item>
+    </style>
 
     <!-- 프로필에 쓰이는 테마 -->
     <style name="MyDatePicker" >
@@ -22,4 +28,6 @@
         <!-- Divider color -->
         <item name="colorControlNormal">#2196F3</item>
     </style>
+
+
 </resources>
