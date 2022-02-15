@@ -2,12 +2,10 @@ package com.ssafy.galmuri.controller;
 
 import com.ssafy.galmuri.domain.trip.Schedule;
 import com.ssafy.galmuri.domain.trip.ScheduleID;
-import com.ssafy.galmuri.domain.trip.Trip;
 import com.ssafy.galmuri.dto.trip.ScheduleCreateDto;
 import com.ssafy.galmuri.dto.trip.ScheduleReadDto;
 import com.ssafy.galmuri.dto.trip.ScheduleUpdateDto;
 import com.ssafy.galmuri.service.ScheduleService;
-import com.ssafy.galmuri.service.TripService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,5 +41,9 @@ public class ScheduleController {
     @DeleteMapping("/delete/{tripId}/{tripOrder}")
     public ScheduleID deleteByIdAndOrder(@PathVariable Long tripId, @PathVariable int tripOrder){
         return scheduleService.deleteByIdAndOrder(tripId,tripOrder);
+    }
+    @DeleteMapping("/delete/{tripId}")
+    public int deleteAllById(@PathVariable Long tripId){
+        return scheduleService.deleteAllById(tripId);
     }
 }
