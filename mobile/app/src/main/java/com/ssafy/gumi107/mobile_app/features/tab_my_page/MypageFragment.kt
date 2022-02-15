@@ -13,14 +13,14 @@ class MypageFragment : BaseFragment<FragmentMypageBinding>(
 
 
     private fun gotoProfile(){
-        binding.mypageLayout.setOnClickListener {
+        binding.mypageBtn2.setOnClickListener {
             val action = MypageFragmentDirections.actionMypageFragmentToFragmentProfile2()
             view?.findNavController()?.navigate(action)
         }
     }
 
     private fun gotoFeedback(){
-        binding.mypageMoon.setOnClickListener {
+        binding.mypageBtn3.setOnClickListener {
             val action = MypageFragmentDirections.actionMypageFragmentToQnFeedback()
             view?.findNavController()?.navigate(action)
         }
