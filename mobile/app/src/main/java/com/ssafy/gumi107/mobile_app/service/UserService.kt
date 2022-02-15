@@ -39,9 +39,9 @@ class UserService {
     /**
      * select(read) - 백엔드에서 select 방식이 더 생기면, 그에 맞게 함수이름을 추가 및 변경 하겠습니다.
      */
-    fun selectUser(user: User, callback: RetrofitCallback<User>) {
+    fun selectUser(userId: String, domain:String, callback: RetrofitCallback<User>) {
         val call = ApplicationClass.retrofit.create(UserApi::class.java)
-        call.selectUser(user.userId, user.domain).enqueue(object : Callback<User> {
+        call.selectUser(userId, domain).enqueue(object : Callback<User> {
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "selectUser was successful")
