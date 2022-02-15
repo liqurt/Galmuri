@@ -30,8 +30,8 @@ class ChatRoomOutsideAdapter(private val chatRoomList: MutableList<ChatRoom>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bindInfo(chatRoom: ChatRoom) {
-            binding.chatRoomOutsideId.text = chatRoom.chatRoomId.toString()
-            binding.chatRoomOutsideTitle.text = chatRoom.title
+            //binding.chatRoomOutsideId.text = chatRoom.chatRoomId.toString()
+            //binding.chatRoomOutsideTitle.text = chatRoom.title
             val sampleLastMessage = "블라블라블라"
             binding.chatRoomOutsideLastChat.text = sampleLastMessage
             itemView.setOnClickListener {

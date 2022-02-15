@@ -31,7 +31,7 @@ public class UserService {
         return user.getUserId();
     }
 
-    public UserReadDto findByIdAndDomain(String userId, char domain){
+    public UserReadDto findByIdAndDomain(String userId, char domain) throws IllegalArgumentException{
         User user=userRepository.findById(new UserID(userId,domain))
                 .orElseThrow(()->new IllegalArgumentException("해당 회원이 존재하지 않습니다."));
         return new UserReadDto(user);

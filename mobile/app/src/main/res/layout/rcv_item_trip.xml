@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/clTripDetail"
-    android:layout_width="250dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="8dp">
+    app:cardCornerRadius="15dp"
+    app:cardElevation="8dp"
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,12 +20,14 @@
             android:id="@+id/trip_image"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@drawable/mypage_amugona"
+            android:src="@drawable/empty"
             android:scaleType="fitXY"/>
 
         <!--내용물들-->
         <!--여행제목-->
         <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -48,6 +51,8 @@
 
         <!--목적지-->
         <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -71,6 +76,8 @@
 
         <!--인원-->
         <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -94,6 +101,8 @@
 
         <!--기간-->
         <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -117,6 +126,8 @@
 
         <!--업데이트-->
         <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">

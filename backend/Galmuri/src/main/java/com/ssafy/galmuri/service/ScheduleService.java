@@ -21,7 +21,7 @@ public class ScheduleService {
     private final TripRepository tripRepository;
     @Transactional
     public ScheduleID save(ScheduleCreateDto createDto){
-        Trip trip=tripRepository.findById(createDto.getTripId()).orElseThrow(()->new IllegalArgumentException("해당하는 여행이 없습니다."));
+        Trip trip=tripRepository.findById(createDto.getTripId()).orElseThrow(()-> new IllegalArgumentException("해당하는 여행이 없습니다."));
 
         return new ScheduleID(scheduleRepository.save(Schedule.builder()
                                                 .trip(trip)
@@ -58,6 +58,15 @@ public class ScheduleService {
         ScheduleID scheduleID=new ScheduleID(tripId,order);
         scheduleRepository.deleteById(scheduleID);
         return scheduleID;
+    }
+
+    @Transactional
+    public int deleteAllById(Long tripId){
+        Trip trip=tripRepository.findById(tripId)
+                .orElseThrow(()->new IllegalArgumentException("해당 스케쥴이 없습니다."));
+        int size=scheduleRepository.findAllByTrip(trip).size();
+        scheduleRepository.deleteAllByTrip(trip);
+        return size;
     }
 
 }
