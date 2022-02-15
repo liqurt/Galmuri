@@ -12,8 +12,6 @@ class Global {
         // logcat의 태그
         const val GLOBAL_LOG_TAG = "SSAFYBREAK"
 
-        lateinit var me : User
-
         fun convertLongToTime(time: Long): String {
             val date = Date(time)
             val sdf = SimpleDateFormat("yyyy.MM.dd", Locale.KOREA)
