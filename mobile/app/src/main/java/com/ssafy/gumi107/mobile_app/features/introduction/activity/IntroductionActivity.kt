@@ -9,8 +9,6 @@ import com.ssafy.gumi107.mobile_app.databinding.ActivityIntroductionBinding
 import com.ssafy.gumi107.mobile_app.dto.IntroductionPage
 import com.ssafy.gumi107.mobile_app.features.introduction.adapter.IntroductionAdapter
 import com.ssafy.gumi107.mobile_app.features.login.LoginActivity
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 
 
 class IntroductionActivity : AppCompatActivity() {
@@ -36,8 +34,8 @@ class IntroductionActivity : AppCompatActivity() {
     private fun initViewPager2() {
         val fakeIntroductionPageList : ArrayList<IntroductionPage> =
             arrayListOf(
-                IntroductionPage(R.drawable.intro1,"비었음"),
-                IntroductionPage(R.drawable.intro2,"산과 들이 우거진 문형리"),
+                IntroductionPage(R.drawable.airplanelogo, ""),
+                IntroductionPage(R.drawable.introsecond_ticktick_ver,""),
                 IntroductionPage(R.drawable.empty,"블라블라 어쩌고 저쩌고"),
             )
 
