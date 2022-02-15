@@ -43,4 +43,14 @@ public class TripAgeRangeController {
     public TripAgeRangeID deleteByIdAndRange(@PathVariable Long tripId, @PathVariable int ageRange){
         return service.deleteByTripAndRange(tripId,ageRange);
     }
+    @DeleteMapping("/delete/{tripId}")
+    public int deleteAllById(@PathVariable Long tripId){
+        List<TripAgeRange> ageRangeList=service.findAllByTripId(tripId);
+        int size= ageRangeList.size();
+        for(TripAgeRange ageRange:ageRangeList){
+            service.deleteByTripAndRange(ageRange.getTrip().getTripId(),ageRange.getAgeRange());
+        }
+        return size;
+    }
+
 }

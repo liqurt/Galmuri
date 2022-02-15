@@ -16,9 +16,20 @@ public class UserController {
     public String save(@RequestBody UserCreateDto createDto){
         return userService.save(createDto);
     }
+    @GetMapping("exist/{userId}/{domain}")
+    public Boolean isExist(@PathVariable String userId, @PathVariable char domain){
+        UserReadDto user=null;
+        try{
+            user = userService.findByIdAndDomain(userId,domain);
+        } catch (IllegalArgumentException e){
+            System.out.println(e.getMessage());
+            return false;
+        }
+         return true;
+    }
+
     @GetMapping("/find/{userId}/{domain}")
     public UserReadDto findByIdAndDomain(@PathVariable String userId, @PathVariable char domain){
-        System.out.println(userId+" "+domain);
         return userService.findByIdAndDomain(userId,domain);
     }
     @PutMapping("/update/{userId}/{domain}")
