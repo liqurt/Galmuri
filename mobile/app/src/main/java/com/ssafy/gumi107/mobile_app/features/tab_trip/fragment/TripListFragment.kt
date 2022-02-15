@@ -3,6 +3,7 @@ package com.ssafy.gumi107.mobile_app.features.tab_trip.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ssafy.gumi107.mobile_app.R
@@ -45,7 +46,10 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
         }
         binding.rcvTrip.apply {
             adapter = tripAdapter
-            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+            //layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+
+            // Linear에서 grid로 변경. spanCount로 가로 2개씩 출력되도록 변경함.
+            layoutManager = GridLayoutManager(context, 2)
         }
     }
 

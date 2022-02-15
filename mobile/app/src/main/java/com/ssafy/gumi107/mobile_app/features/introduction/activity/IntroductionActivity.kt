@@ -36,9 +36,9 @@ class IntroductionActivity : AppCompatActivity() {
     private fun initViewPager2() {
         val fakeIntroductionPageList : ArrayList<IntroductionPage> =
             arrayListOf(
-                IntroductionPage(R.drawable.empty,"비었음"),
-                IntroductionPage(R.drawable.fakemap,"산과 들이 우거진 문형리"),
-                IntroductionPage(R.drawable.fake_chat,"블라블라 어쩌고 저쩌고"),
+                IntroductionPage(R.drawable.intro1,"비었음"),
+                IntroductionPage(R.drawable.intro2,"산과 들이 우거진 문형리"),
+                IntroductionPage(R.drawable.empty,"블라블라 어쩌고 저쩌고"),
             )
 
         binding.vp2Introduction.apply {
