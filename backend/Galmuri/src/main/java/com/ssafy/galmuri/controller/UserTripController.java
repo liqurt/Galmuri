@@ -53,6 +53,10 @@ public class UserTripController {
         }
         return userList;
     }
+    @GetMapping("/own/{userId}/{domain}/{tripId}")
+    public Boolean isOwn(@PathVariable String userId, @PathVariable Character domain, @PathVariable Long tripId){
+        return userTripService.findByUserAndTrip(userId,domain,tripId).isOwn();
+    }
     @PutMapping("/update/{userId}/{domain}/{tripId}")
     public UserTripID update(@PathVariable String userId,@PathVariable Character domain,@PathVariable Long tripId, @RequestBody UserTripUpdateDto updateDto){
         return userTripService.update(userId,domain,tripId,updateDto);
