@@ -1,2 +1,4 @@
 /.metadata/
 application-oauth.properties
+application-database.properties
+Galmuri/build/libs/*

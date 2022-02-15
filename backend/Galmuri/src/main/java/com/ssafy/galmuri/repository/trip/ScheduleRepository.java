@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, ScheduleID> {
     List<Schedule> findAllByTrip(Trip trip);
+    void deleteAllByTrip(Trip trip);
 }
