@@ -15,4 +15,7 @@ data class User(
     var modifiedDate : Long? = null
     var totalScore : Float? = null
     var totalVote : Int? = null
+    var birth : Long? = null
+    var comment : String? = null
+    var photoUrl : String? = null
 }

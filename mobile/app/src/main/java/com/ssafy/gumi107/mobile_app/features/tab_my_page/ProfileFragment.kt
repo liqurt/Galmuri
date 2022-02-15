@@ -13,7 +13,6 @@ import androidx.navigation.findNavController
 import com.ssafy.gumi107.mobile_app.R
 import com.ssafy.gumi107.mobile_app.config.BaseFragment
 import com.ssafy.gumi107.mobile_app.config.Global
-import com.ssafy.gumi107.mobile_app.config.Global.Companion.me
 import com.ssafy.gumi107.mobile_app.config.RetrofitCallback
 import com.ssafy.gumi107.mobile_app.databinding.FragmentProfileBinding
 import com.ssafy.gumi107.mobile_app.dto.User
@@ -67,31 +66,13 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
 
     }
 
-    private fun getInfomationAboutMe(me: User?){
+    private fun getInformationAboutMe(){
         val us = UserService()
-        if (me != null) {
-            us.selectUser(me,SelectUserCallback())
-        }
+        val dummyUserId = "dummyUserId001"
+        val dummyDomain = "D"
+        us.selectUser(dummyUserId,dummyDomain,SelectUserCallback())
     }
 
-    private fun initView(){
-        Log.d(Global.GLOBAL_LOG_TAG, "initView: $me")
-        // 성별
-        if(me!!.gender){
-            binding.profileRadioMan.isChecked = true
-            binding.profileRadioWoman.isChecked = false
-        }else{
-            binding.profileRadioMan.isChecked = false
-            binding.profileRadioWoman.isChecked = true
-        }
-
-        // comment - 현재 User에 comment가 없어서 일단 트위터,페북,인스타 주소를 올렸어요
-        binding.editTextTextMultiLine.setText(
-            "페이스북 : ${me!!.facebook}\n" +
-            "인스타그램 : ${me!!.instagram}\n" +
-            "트위터 : ${me!!.twitter}"
-        )
-    }
 
     inner class SelectUserCallback : RetrofitCallback<User> {
         override fun onError(t: Throwable) {
@@ -100,7 +81,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
 
         override fun onSuccess(code: Int, responseData: User) {
             Log.d(Global.GLOBAL_LOG_TAG, "onSuccess: $responseData")
-            me = responseData
         }
 
         override fun onFailure(code: Int) {
@@ -111,19 +91,17 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getInfomationAboutMe(me)
+        getInformationAboutMe()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initView()
-
         Profilegoback() // 뒤로가기 버튼
         ProfileLogout() // 로그아웃
         //dialog
         binding.tripchoicebtn.setOnClickListener {
-            var dialog = CustomDialogFragment()
+            val dialog = CustomDialogFragment()
 
             dialog.show(childFragmentManager, "customDialog")
         }
@@ -134,18 +112,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
         }
 
         binding.btnEditProfile.setOnClickListener {
-            meUpdate()
-            initView()
-            val us = UserService()
-            us.updateUser(me!!)
-        }
-    }
 
-    fun meUpdate(){
-        if(binding.profileRadioMan.isChecked && !binding.profileRadioWoman.isChecked){
-            me!!.gender = true
-        }else if(!binding.profileRadioMan.isChecked && binding.profileRadioWoman.isChecked){
-            me!!.gender = false
         }
     }
 }
