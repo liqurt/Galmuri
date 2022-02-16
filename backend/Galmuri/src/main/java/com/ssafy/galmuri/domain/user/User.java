@@ -51,7 +51,7 @@ public class User extends BaseTimeEntity {
     @Column
     private String twitter;
 
-    @Column(length=1000)
+    @Column(length = 1000)
     private String comment;
 
     @Column
