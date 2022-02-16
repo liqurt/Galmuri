@@ -71,6 +71,27 @@ class TripService {
         })
     }
 
+    fun selectTripsByContinent(continent : String, callback: RetrofitCallback<List<Trip>>){
+        val call = ApplicationClass.retrofit.create(TripApi::class.java)
+        call.selectTripsByContinent(continent).enqueue(object : Callback<List<Trip>>{
+            override fun onResponse(call: Call<List<Trip>>, response: Response<List<Trip>>) {
+                if (response.isSuccessful) {
+                    Log.d(Global.GLOBAL_LOG_TAG, "selectTripsByContinent was successful")
+                    if (response.body() != null) {
+                        callback.onSuccess(response.code(), response.body()!!)
+                    }
+                } else {
+                    Log.d(Global.GLOBAL_LOG_TAG, "selectTripsByContinent was not successful")
+                }
+            }
+
+            override fun onFailure(call: Call<List<Trip>>, t: Throwable) {
+                Log.d(Global.GLOBAL_LOG_TAG, "$onFailureMessage in selectTripsByContinent: $t")
+            }
+
+        })
+    }
+
     fun updateTrip(tripId: Long, trip: Trip) {
         val call = ApplicationClass.retrofit.create(TripApi::class.java)
         call.updateTrip(tripId, trip).enqueue(object : Callback<Unit> {

@@ -17,6 +17,11 @@ interface TripApi{
     @GET("/trip/find")
     fun selectAllTrip() : Call<List<Trip>>
 
+    @GET("/trip/continent/{continent}")
+    fun selectTripsByContinent(
+        @Path("continent") continent : String
+    ) : Call<List<Trip>>
+
     @PUT("/trip/update/{tripId}")
     fun updateTrip(
         @Path("tripId") tripId: Long,

@@ -2,6 +2,7 @@ package com.ssafy.gumi107.mobile_app.config
 
 import android.app.Application
 import android.os.Build
+import android.util.Log
 import com.kakao.sdk.common.KakaoSdk
 import androidx.annotation.RequiresApi
 import com.google.gson.GsonBuilder
@@ -23,6 +24,9 @@ class ApplicationClass : Application() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate() {
         super.onCreate()
+
+        Log.d(Global.GLOBAL_LOG_TAG, "지금 : ${System.currentTimeMillis()}")
+        Log.d(Global.GLOBAL_LOG_TAG, "1주일 후 : ${System.currentTimeMillis() + 7*24*60*60*1000}")
 
         // Kakao SDK 초기화
         KakaoSdk.init(this,"0446899cd3996600e2ef713e92040857")
