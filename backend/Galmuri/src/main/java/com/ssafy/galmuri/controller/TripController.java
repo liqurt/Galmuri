@@ -1,5 +1,6 @@
 package com.ssafy.galmuri.controller;
 
+import com.ssafy.galmuri.domain.trip.Trip;
 import com.ssafy.galmuri.dto.trip.TripCreateDto;
 import com.ssafy.galmuri.dto.trip.TripReadDto;
 import com.ssafy.galmuri.dto.trip.TripUpdateDto;
@@ -8,18 +9,29 @@ import com.ssafy.galmuri.service.UserTripService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @RestController
 @RequestMapping("/trip")
 public class TripController {
     private TripService tripService;
-    private UserTripService userTripService;
     @PostMapping("/register")
     public Long save(@RequestBody TripCreateDto createDto){
         return tripService.save(createDto);
     }
+    @GetMapping("/find")
+    public List<TripReadDto> findAll(){
+        List<Trip> trips=tripService.findAllTrip();
+        List<TripReadDto> list=new ArrayList<>();
+        for(Trip trip:trips){
+            list.add(new TripReadDto(trip));
+        }
+        return list;
+    }
     @GetMapping("/find/{tripId}")
-    public TripReadDto findByIdAndDomain(@PathVariable Long tripId){
+    public TripReadDto findById(@PathVariable Long tripId){
         return tripService.findById(tripId);
     }
     @PutMapping("/update/{tripId}")
@@ -27,7 +39,7 @@ public class TripController {
         return tripService.update(tripId,updateDto);
     }
     @DeleteMapping("/delete/{tripId}")
-    public Long deleteByIdAndDomain(@PathVariable Long tripId){
+    public Long deleteById(@PathVariable Long tripId){
         return tripService.deleteById(tripId);
     }
 }

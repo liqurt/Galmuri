@@ -43,6 +43,10 @@ public class TripService {
                 .orElseThrow(()->new IllegalArgumentException("해당 여행 계획이 존재하지 않습니다."));
         return trip;
     }
+    public List<Trip> findAllTrip(){
+        List<Trip> trips=tripRepository.findAll();
+        return trips;
+    }
     @Transactional
     public Long deleteById(Long tripId){
         tripRepository.deleteById(tripId);
