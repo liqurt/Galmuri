@@ -61,9 +61,9 @@ class UserTripService {
                     call: Call<List<Trip>>,
                     response: Response<List<Trip>>,
                 ) {
+                    Log.d(Global.GLOBAL_LOG_TAG,
+                        "$response")
                     if (response.isSuccessful) {
-                        Log.d(Global.GLOBAL_LOG_TAG,
-                            "selectUserTripByUserIdAndDomain was successful")
                         callback.onSuccess(response.code(), response.body()!!)
                     } else {
                         Log.d(Global.GLOBAL_LOG_TAG,

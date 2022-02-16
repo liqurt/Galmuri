@@ -103,8 +103,6 @@ class UserService {
         call.isExistUser(userId, domain).enqueue(object : Callback<Boolean>{
             override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
                 if (response.isSuccessful) {
-                    Log.d(Global.GLOBAL_LOG_TAG, "isExistUser was successful")
-                    Log.d(Global.GLOBAL_LOG_TAG, "onResponse: ${response.body()}")
                     if(response.body() != null){
                         callback.onSuccess(response.code(), response.body()!!)
                     }

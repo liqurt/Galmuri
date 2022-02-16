@@ -10,10 +10,10 @@ data class Trip (
     var maxMember : Int,
     var startDate : Long,
     var theme : String, // 여행 테마
-    var title : String
+    var title : String,
+    var nowMember : Int? = 1,
+    var modifiedDate : Long? = null
 ) : Serializable{
     var tripId : Long? = null //PK
     var createdDate : Long? = null
-    var modifiedDate : Long? = null
-    var nowMember : Int? = null
 }

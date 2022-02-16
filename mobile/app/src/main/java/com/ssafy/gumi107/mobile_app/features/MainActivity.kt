@@ -119,22 +119,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun onSuccess(code: Int, responseData: Boolean) {
-            Log.d(Global.GLOBAL_LOG_TAG, "회원 가입이 되어있나?: $responseData")
-            if (!responseData) {
-                UserApiClient.instance.me { user, error ->
-                    user?.kakaoAccount?.email?.let {
-                        me.userId = Global.getOnlyIdFromEmail(it)
-                    }
-                    me.nickName = user?.kakaoAccount?.profile?.nickname.toString()
-                    me.gender = user?.kakaoAccount?.gender.toString() == "MALE"
-                    me.domain = "K"
-                    me.age = getAgeFromAgeRange(user?.kakaoAccount?.ageRange)
-                    me.photoUrl = user?.kakaoAccount?.profile?.profileImageUrl
-
-                    val us = UserService()
-                    us.insertUser(me)
+            UserApiClient.instance.me { user, error ->
+                user?.kakaoAccount?.email?.let {
+                    me.userId = Global.getOnlyIdFromEmail(it)
                 }
-
+                me.nickName = user?.kakaoAccount?.profile?.nickname.toString()
+                me.gender = user?.kakaoAccount?.gender.toString() == "MALE"
+                me.domain = "K"
+                me.age = getAgeFromAgeRange(user?.kakaoAccount?.ageRange)
+                me.photoUrl = user?.kakaoAccount?.profile?.profileImageUrl
+            }
+            if (!responseData) {
+                val us = UserService()
+                us.insertUser(me)
             }
         }
 

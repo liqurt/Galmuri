@@ -4,7 +4,9 @@ import android.util.Log
 import com.ssafy.gumi107.mobile_app.api.ScheduleApi
 import com.ssafy.gumi107.mobile_app.config.ApplicationClass
 import com.ssafy.gumi107.mobile_app.config.Global
+import com.ssafy.gumi107.mobile_app.config.RetrofitCallback
 import com.ssafy.gumi107.mobile_app.dto.Schedule
+import com.ssafy.gumi107.mobile_app.dto.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -44,12 +46,17 @@ class ScheduleService {
         })
     }
 
-    fun selectScheduleByIdAndOrder(tripId: Long, tripOrder: Int){
+    fun selectScheduleByIdAndOrder(tripId: Long, tripOrder: Int, callback: RetrofitCallback<Schedule>){
+        Log.d(Global.GLOBAL_LOG_TAG,"Input : ($tripId, $tripOrder)")
         val call = ApplicationClass.retrofit.create(ScheduleApi::class.java)
         call.selectScheduleByIdAndOrder(tripId, tripOrder).enqueue(object : Callback<Schedule> {
             override fun onResponse(call: Call<Schedule>, response: Response<Schedule>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "selectScheduleByIdAndOrder was successful")
+                    Log.d(Global.GLOBAL_LOG_TAG, "${response.body()}")
+//                    if(response.body() != null){
+//                        callback.onSuccess(response.code(), response.body()!!)
+//                    }
                 }else{
                     Log.d(Global.GLOBAL_LOG_TAG, "selectScheduleByIdAndOrder was not successful")
                 }
