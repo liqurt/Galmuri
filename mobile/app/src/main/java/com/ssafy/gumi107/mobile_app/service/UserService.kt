@@ -7,10 +7,7 @@ import com.ssafy.gumi107.mobile_app.config.ApplicationClass
 import com.ssafy.gumi107.mobile_app.config.Global
 import com.ssafy.gumi107.mobile_app.config.RetrofitCallback
 import com.ssafy.gumi107.mobile_app.dto.User
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import retrofit2.*
 
 // User에 관한 CRUD
 class UserService {
@@ -96,8 +93,30 @@ class UserService {
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
-                Log.d(Global.GLOBAL_LOG_TAG, "${onFailureMessage} in deleteUser: $t")
+                Log.d(Global.GLOBAL_LOG_TAG, "$onFailureMessage in deleteUser: $t")
             }
+        })
+    }
+
+    fun isExistUser(userId: String, domain: String, callback: RetrofitCallback<Boolean>){
+        val call = ApplicationClass.retrofit.create(UserApi::class.java)
+        call.isExistUser(userId, domain).enqueue(object : Callback<Boolean>{
+            override fun onResponse(call: Call<Boolean>, response: Response<Boolean>) {
+                if (response.isSuccessful) {
+                    Log.d(Global.GLOBAL_LOG_TAG, "isExistUser was successful")
+                    Log.d(Global.GLOBAL_LOG_TAG, "onResponse: ${response.body()}")
+                    if(response.body() != null){
+                        callback.onSuccess(response.code(), response.body()!!)
+                    }
+                } else {
+                    Log.d(Global.GLOBAL_LOG_TAG, "isExistUser was not successful")
+                }
+            }
+
+            override fun onFailure(call: Call<Boolean>, t: Throwable) {
+                Log.d(Global.GLOBAL_LOG_TAG, "isExistUser was not successful")
+            }
+
         })
     }
 }

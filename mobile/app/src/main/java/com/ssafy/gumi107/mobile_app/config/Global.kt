@@ -21,5 +21,20 @@ class Global {
         fun getOnlyIdFromEmail(email : String) : String{
             return email.split("@")[0]
         }
+
+        var me = User(
+            userId = "dummy",
+            domain = "D",
+            age = 0,
+            facebook = "fb",
+            instagram = "insta",
+            twitter = "twit",
+            gender = false,
+            countryCode = "KOR",
+            nickName = "nick",
+            birth = null,
+            comment = null,
+            photoUrl = null,
+        )
     }
 }
