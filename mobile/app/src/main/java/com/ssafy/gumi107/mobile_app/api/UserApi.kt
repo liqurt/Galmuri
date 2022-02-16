@@ -28,4 +28,10 @@ interface UserApi {
         @Path("userId") userId : String,
         @Path("domain") domain : String,
     ) : Call<Unit>
+
+    @GET("/user/exist/{userId}/{domain}")
+    fun isExistUser(
+        @Path("userId") userId: String,
+        @Path("domain") domain: String,
+    ) : Call<Boolean>
 }

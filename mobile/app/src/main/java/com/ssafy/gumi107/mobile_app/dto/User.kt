@@ -9,13 +9,13 @@ data class User(
     var instagram : String,
     var nickName : String,
     var twitter : String,
-    var countryCode : String // FK 최대 3글자
+    var countryCode : String, // FK 최대 3글자
+    var birth : Long?,
+    var comment : String?,
+    var photoUrl : String?,
 ) {
     var createdDate : Long? = null
     var modifiedDate : Long? = null
     var totalScore : Float? = null
     var totalVote : Int? = null
-    var birth : Long? = null
-    var comment : String? = null
-    var photoUrl : String? = null
 }

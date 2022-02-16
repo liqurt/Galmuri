@@ -33,13 +33,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
             Glide.with(this).load(user?.kakaoAccount?.profile?.profileImageUrl)
                 .into(binding.profilePic)
 
-            Log.d(Global.GLOBAL_LOG_TAG, "${user?.kakaoAccount?.email}")
-            Log.d(Global.GLOBAL_LOG_TAG, "${
-                user?.kakaoAccount?.email?.let {
-                    Global.getOnlyIdFromEmail(it)
-                }
-            }")
-
             getMyTripList()
         }
 
