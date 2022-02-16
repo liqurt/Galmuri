@@ -51,13 +51,13 @@ public class User extends BaseTimeEntity {
     @Column
     private String twitter;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length=1000)
     private String comment;
 
     @Column
     private Long birth;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 1000)
     private String photoUrl;
 
     @Builder
