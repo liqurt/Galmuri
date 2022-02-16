@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -38,6 +40,9 @@ public class Trip extends BaseTimeEntity {
 
     @Column(nullable = false)
     private boolean done;
+
+    @OneToMany(mappedBy = "trip")
+    private List<Schedule> schedules=new ArrayList<>();
 
     public Trip(Long tripId){
         this.tripId=tripId;
