@@ -14,6 +14,9 @@ interface TripApi{
         @Path("tripId") tripId: Long
     ) : Call<Trip>
 
+    @GET("/trip/find")
+    fun selectAllTrip() : Call<List<Trip>>
+
     @PUT("/trip/update/{tripId}")
     fun updateTrip(
         @Path("tripId") tripId: Long,
