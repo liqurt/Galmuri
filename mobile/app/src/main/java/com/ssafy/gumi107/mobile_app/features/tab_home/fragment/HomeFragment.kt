@@ -3,16 +3,18 @@ package com.ssafy.gumi107.mobile_app.features.tab_home.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kakao.sdk.user.UserApiClient
 
 import com.ssafy.gumi107.mobile_app.R
 import com.ssafy.gumi107.mobile_app.config.BaseFragment
 import com.ssafy.gumi107.mobile_app.config.Global
+import com.ssafy.gumi107.mobile_app.config.Global.Companion.me
 import com.ssafy.gumi107.mobile_app.config.RetrofitCallback
 import com.ssafy.gumi107.mobile_app.databinding.FragmentHomeBinding
 import com.ssafy.gumi107.mobile_app.dto.Trip
-import com.ssafy.gumi107.mobile_app.dto.UserTrip
 import com.ssafy.gumi107.mobile_app.features.tab_trip.adapter.TripAdapter
 import com.ssafy.gumi107.mobile_app.service.UserTripService
 
@@ -24,6 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initView()
     }
 
@@ -32,7 +35,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
             binding.greetingMessage.text = "${user?.kakaoAccount?.profile?.nickname}님\n즐거운 여행 되세요!"
             Glide.with(this).load(user?.kakaoAccount?.profile?.profileImageUrl)
                 .into(binding.profilePic)
-
             getMyTripList()
         }
 
@@ -41,11 +43,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
 
     private fun getMyTripList() {
         val userTripService = UserTripService()
-        val sampleDomain = "D"
-        val sampleUserId = "dummyUserId002"
-        userTripService.selectTripsByUserIdAndDomain(sampleUserId,
-            sampleDomain,
-            SelectTripsByUserIdAndDomainCallback())
+        UserApiClient.instance.me { user, error ->
+            user?.kakaoAccount?.email?.let {
+                me.userId = Global.getOnlyIdFromEmail(it)
+                userTripService.selectTripsByUserIdAndDomain(me.userId,
+                    "K",
+                    SelectTripsByUserIdAndDomainCallback())
+            }
+        }
     }
 
     inner class SelectTripsByUserIdAndDomainCallback : RetrofitCallback<List<Trip>> {
@@ -54,24 +59,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         }
 
         override fun onSuccess(code: Int, responseData: List<Trip>) {
-            Log.d(Global.GLOBAL_LOG_TAG, "onSuccess: $responseData")
+            tripList = sortByStartDate(responseData) as MutableList<Trip>
+
+            tripAdapter = TripAdapter(tripList)
+            binding.rcvTripListHome.apply {
+                adapter = tripAdapter
+                layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+            }
         }
 
         override fun onFailure(code: Int) {
             Log.d(Global.GLOBAL_LOG_TAG, "onFailure: ")
         }
 
-
+        private fun sortByStartDate(responseData: List<Trip>): List<Trip> {
+            return responseData.sortedWith(
+                compareBy { it.startDate }
+            )
+        }
     }
-
-
-    //152,214,109
-
-    // 투두
-    // 1. 메인 액티비티에서 도메인과 유저아이디로 회원가입이 되있는지 체크
-    // 2. 되어 있다면, me 는 select. 안 되어 있다면 me는 insert
-    //
-    // 3. userTrip service중 findByUser를 이용해서 자신이 소속된 트립들을 가져옴
-    // 4. 가져온 데이타들을, 시간순으로 재 정렬.
-    // 5. 때려박음
 }
