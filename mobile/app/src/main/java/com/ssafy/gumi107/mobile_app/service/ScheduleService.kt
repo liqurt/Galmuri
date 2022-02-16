@@ -53,10 +53,9 @@ class ScheduleService {
             override fun onResponse(call: Call<Schedule>, response: Response<Schedule>) {
                 if (response.isSuccessful) {
                     Log.d(Global.GLOBAL_LOG_TAG, "selectScheduleByIdAndOrder was successful")
-                    Log.d(Global.GLOBAL_LOG_TAG, "${response.body()}")
-//                    if(response.body() != null){
-//                        callback.onSuccess(response.code(), response.body()!!)
-//                    }
+                    if(response.body() != null){
+                        callback.onSuccess(response.code(), response.body()!!)
+                    }
                 }else{
                     Log.d(Global.GLOBAL_LOG_TAG, "selectScheduleByIdAndOrder was not successful")
                 }
