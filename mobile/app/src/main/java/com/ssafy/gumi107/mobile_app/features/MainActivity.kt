@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity() {
 
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) {
-                Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
+                Log.d(Global.GLOBAL_LOG_TAG, "토큰 정보 보기 실패")
             } else if (tokenInfo != null) {
-                Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
+                Log.d(Global.GLOBAL_LOG_TAG, "토큰 정보 보기 성공")
                 UserApiClient.instance.me { user, error ->
                     if (error != null) {
-                        Log.e("실패", "사용자 정보 요청 실패", error)
+                        Log.d(Global.GLOBAL_LOG_TAG, "사용자 정보 요청 실패 ($error)")
                     } else if (user != null) {
                         var scopes = mutableListOf<String>()
 
@@ -65,21 +65,20 @@ class MainActivity : AppCompatActivity() {
                         }
 
                         if (scopes.count() > 0) {
-                            Log.d("추가동의", "사용자에게 추가 동의를 받아야 합니다.")
+                            Log.d(Global.GLOBAL_LOG_TAG, "사용자에게 추가 동의를 받아야 합니다.")
 
                             UserApiClient.instance.loginWithNewScopes(this,
                                 scopes) { token, error ->
                                 if (error != null) {
-                                    Log.e("호오", "사용자 추가 동의 실패", error)
+                                    Log.d(Global.GLOBAL_LOG_TAG, "사용자 추가 동의 실패", error)
                                 } else {
-                                    Log.d("스코프", "allowed scopes: ${token!!.scopes}")
-
-                                    // 사용자 정보 재요청
+                                    Log.d(Global.GLOBAL_LOG_TAG,
+                                        "allowed scopes: ${token!!.scopes}")
                                     UserApiClient.instance.me { user, error ->
                                         if (error != null) {
-                                            Log.e("요청실패", "사용자 정보 요청 실패", error)
+                                            Log.d(Global.GLOBAL_LOG_TAG, "사용자 정보 요청 실패", error)
                                         } else if (user != null) {
-                                            Log.i("요청성공", "사용자 정보 요청 성공")
+                                            Log.d(Global.GLOBAL_LOG_TAG, "사용자 정보 요청 성공")
                                         }
                                     }
                                 }
@@ -87,10 +86,8 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
                 }
-
             }
         }
-
         userRegister()
     }
 
