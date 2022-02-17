@@ -11,5 +11,10 @@
     <string name="google_map_api_key">AIzaSyDRT5Wymgi7F7Vpy0HWKeXHcmwSiowYayI</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="list_of_companions">List of Companions</string>
+    <string name="list_asia">아시아</string>
+    <string name="list_america">아메리카</string>
+    <string name="list_europe">유럽</string>
+    <string name="list_others">그 외</string>
 
 </resources>
