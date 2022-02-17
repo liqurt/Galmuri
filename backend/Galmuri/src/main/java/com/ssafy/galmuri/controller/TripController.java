@@ -34,6 +34,15 @@ public class TripController {
     public TripReadDto findById(@PathVariable Long tripId){
         return tripService.findById(tripId);
     }
+    @GetMapping("/continent/{continent}")
+    public List<TripReadDto> findByContinent(@PathVariable String continent){
+        List<Trip> trips=tripService.findAllTripByContinent(continent);
+        List<TripReadDto> list=new ArrayList<>();
+        for(Trip trip:trips){
+            list.add(new TripReadDto(trip));
+        }
+        return list;
+    }
     @PutMapping("/update/{tripId}")
     public Long update(@PathVariable Long tripId,@RequestBody TripUpdateDto updateDto){
         return tripService.update(tripId,updateDto);

@@ -20,7 +20,7 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
     private lateinit var tripAdapter: TripAdapter
     private var tripList = mutableListOf<Trip>()
     private lateinit var mView : View
-
+    private lateinit var mContinent : String
     private fun initTripList() {
         Log.d(Global.GLOBAL_LOG_TAG, "initTripList: ")
         val ts = TripService()
@@ -71,6 +71,42 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
         }
     }
 
+    private fun initContinentButton(){
+        binding.triplistBtnAsia.setOnClickListener {
+            mContinent = "Asia"
+            getTripsByContinent()
+        }
+        binding.triplistBtnAmerica.setOnClickListener {
+            mContinent = "North America"
+            getTripsByContinent()
+        }
+        binding.triplistBtnEurope.setOnClickListener {
+            mContinent = "Europe"
+            getTripsByContinent()
+        }
+    }
+
+    private fun getTripsByContinent(){
+        val ts = TripService()
+        ts.selectTripsByContinent(mContinent, SelectTripsByContinentCallback())
+    }
+
+    inner class SelectTripsByContinentCallback: RetrofitCallback<List<Trip>>{
+        override fun onError(t: Throwable) {
+            Log.d(Global.GLOBAL_LOG_TAG, "onError: ")
+        }
+
+        override fun onSuccess(code: Int, responseData: List<Trip>) {
+            Log.d(Global.GLOBAL_LOG_TAG, "onSuccess: $responseData")
+            tripList = responseData as MutableList<Trip>
+            initRecyclerView(mView)
+        }
+
+        override fun onFailure(code: Int) {
+            Log.d(Global.GLOBAL_LOG_TAG, "onFailure: ")
+        }
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,5 +114,6 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
         initTripList()
         initRecyclerView(view)
         initNewTrip()
+        initContinentButton()
     }
 }
