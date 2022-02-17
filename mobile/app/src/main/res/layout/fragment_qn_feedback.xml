@@ -25,6 +25,10 @@
                 android:id="@+id/linear_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="0dp"
                 android:gravity="center_vertical"
                 android:padding="10dp">
 
@@ -41,22 +45,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Feedback"
                     android:includeFontPadding="false"
+                    android:text="Feedback"
                     android:textColor="@android:color/black"
                     android:textSize="16dp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/QnFLogout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="Logout"
-                    android:textColor="#8FA7FC"
-                    android:textSize="15dp"
-                    android:includeFontPadding="false"
-                    android:textStyle="normal" />
 
             </LinearLayout>
 
@@ -72,10 +65,80 @@
             android:id="@+id/namemail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="이름, 이메일 목록 "
+            android:textSize="20dp"
+            android:layout_marginTop="70dp"
+
             android:includeFontPadding="false"
+            android:text="네트워크, UI : 윤승일 (liqurt@gmail.com)"
             android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_toolbar" />
+
+        <TextView
+            android:id="@+id/namemail1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="BE, DB : 최대호 (cdh6006@gmail.com)"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namemail" />
+
+        <TextView
+            android:id="@+id/namemail2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="UI, FE : 이정민 (edge2539@naver.com)"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namemail1" />
+
+        <TextView
+            android:id="@+id/namemail3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="FE, 기획 : 홍령기 (ghdfudrl8@naver.com)"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namemail2" />
+
+        <TextView
+            android:id="@+id/namemail4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="로그인, 기획 : 정인석 (kxv1031@naver.com)"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namemail3" />
+
+        <TextView
+            android:id="@+id/namemail5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:text="그 외 : 최현정 (owo339@naver.com)"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/namemail4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

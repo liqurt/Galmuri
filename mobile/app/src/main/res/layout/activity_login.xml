@@ -147,7 +147,10 @@
         android:id="@+id/loginDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="로그인완료(삭제할것임)"
+        android:background="#000000ff"
+        android:text="둘러보기"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

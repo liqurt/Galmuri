@@ -35,8 +35,8 @@ class IntroductionActivity : AppCompatActivity() {
         val fakeIntroductionPageList : ArrayList<IntroductionPage> =
             arrayListOf(
                 IntroductionPage(R.drawable.airplanelogo, ""),
-                IntroductionPage(R.drawable.introsecond_ticktick_ver,"바꿀 예정"),
-                //IntroductionPage(R.drawable.empty,"블라블라 어쩌고 저쩌고"),
+                IntroductionPage(R.drawable.introsecond_ticktick_ver,""),
+
             )
 
         binding.vp2Introduction.apply {

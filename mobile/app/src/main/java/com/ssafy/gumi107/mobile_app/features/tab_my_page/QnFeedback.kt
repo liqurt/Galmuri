@@ -14,12 +14,12 @@ class QnFeedback : BaseFragment<FragmentQnFeedbackBinding>(
     FragmentQnFeedbackBinding::bind, R.layout.fragment_qn_feedback
 ) {
 
-    // 로그아웃 버튼
-    private fun QnFLogout(){
-        binding.QnFLogout.setOnClickListener {
-            // 로그아웃 처리
-        }
-    }
+//    // 로그아웃 버튼
+//    private fun QnFLogout(){
+//        binding.QnFLogout.setOnClickListener {
+//            // 로그아웃 처리
+//        }
+//    }
 
     // 뒤로가기 버튼
     private fun QnFgoback(){
@@ -31,7 +31,7 @@ class QnFeedback : BaseFragment<FragmentQnFeedbackBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        QnFLogout() // 로그아웃
+//        QnFLogout() // 로그아웃
         QnFgoback() // 뒤로가기
 
     }
