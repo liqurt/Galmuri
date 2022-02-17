@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.ui.window.Dialog
 import androidx.core.app.ActivityCompat
 import androidx.navigation.findNavController
 import com.ssafy.gumi107.mobile_app.R
@@ -38,20 +39,20 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
             }*/
         }
 
-    // 뒤로가기 버튼
+    /*// 뒤로가기 버튼
     private fun Profilegoback(){
         binding.goback.setOnClickListener {
             val action = ProfileFragmentDirections.actionFragmentProfile2ToMypageFragment()
             view?.findNavController()?.navigate(action)
         }
-    }
+    }*/
 
-    // 로그아웃 버튼
-    private fun ProfileLogout(){
-        binding.Logout.setOnClickListener {
-            // 로그아웃 처리
-        }
-    }
+//    // 로그아웃 버튼
+//    private fun ProfileLogout(){
+//        binding.Logout.setOnClickListener {
+//            // 로그아웃 처리
+//        }
+//    }
 
     fun RequestPermission(){
         //camera album
@@ -97,8 +98,8 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Profilegoback() // 뒤로가기 버튼
-        ProfileLogout() // 로그아웃
+        //Profilegoback() // 뒤로가기 버튼
+        //ProfileLogout() // 로그아웃
         //dialog
         binding.tripchoicebtn.setOnClickListener {
             val dialog = CustomDialogFragment()

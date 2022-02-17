@@ -308,6 +308,20 @@
             android:scaleType="center"
             android:adjustViewBounds="true"/>
 
+        <TextView
+            android:id="@+id/mypage_logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:fontFamily="@font/poppins_regular"
+            android:includeFontPadding="false"
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:layout_gravity="end"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="50dp"
+            />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/mypage_top_layout"
             android:layout_width="match_parent"
@@ -455,14 +469,14 @@
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:src="@drawable/mypage_qna_sticker" />
+            android:src="@drawable/mypage_feedback_sticker" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="85dp"
-            android:text="문의 / 피드백"
+            android:text="동행 피드백"
             android:includeFontPadding="false"
             android:textSize="15sp"
             android:textStyle="bold" />

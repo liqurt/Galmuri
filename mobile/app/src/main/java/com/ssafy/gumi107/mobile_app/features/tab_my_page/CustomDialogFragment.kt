@@ -1,9 +1,9 @@
 package com.ssafy.gumi107.mobile_app.features.tab_my_page
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -23,6 +23,9 @@ class CustomDialogFragment : DialogFragment() {
     ): View? {
         var rootView: View = inflater.inflate(R.layout.fragment_profile_dialog, container, false)
 
+        //다이얼로그 모서리 둥글게 하기 위함
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
         rootView.findViewById<Button>(R.id.Cancelbtn).setOnClickListener {
             dismiss()
         }
@@ -38,10 +41,12 @@ class CustomDialogFragment : DialogFragment() {
 
             }
 
-            var result = ""
+            var result = "당신은 "
             for(i in chipList){
-                result += "$i / "
+                result += "$i, "
             }
+            result = result.substring(0, result.length - 2)
+            result += "!"
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show()
 
             dismiss()

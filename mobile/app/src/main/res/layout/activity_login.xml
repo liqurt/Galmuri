@@ -31,7 +31,7 @@
         android:includeFontPadding="false"
         android:textColorHint="#fffbf8"
         android:paddingLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login" />
@@ -54,7 +54,7 @@
         android:id="@+id/chk_autologin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:buttonTint="#fffbf8"
         android:hint="#fffbf8"
         android:includeFontPadding="false"
@@ -83,7 +83,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chk_autologin" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login_submit"
         android:layout_width="250dp"
         android:layout_height="40dp"
@@ -91,7 +91,7 @@
         android:textAllCaps="false"
         android:textColor="#fffbf8"
         android:background="@drawable/login_submit_btn"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_view" />
