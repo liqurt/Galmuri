@@ -120,7 +120,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/empty" />
+                    android:src="@drawable/triplist_africa" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -144,7 +144,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/triplist_america" />
+                    android:src="@drawable/triplist_northamerica" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/empty" />
+                    android:src="@drawable/triplist_southamerica" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -192,7 +192,7 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="12dp"
-                    android:src="@drawable/empty" />
+                    android:src="@drawable/triplist_hoju" />
 
                 <TextView
                     android:layout_width="wrap_content"
