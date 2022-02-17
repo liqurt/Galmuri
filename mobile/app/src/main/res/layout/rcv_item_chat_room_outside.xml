@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <!--툴바아래구분선-->
+    <View
+        android:id="@+id/message_line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F1F1F1"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!-- 메세지 정보 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/message_btn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/message_apply"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/message_line1">
+
+<!--        &lt;!&ndash;프로필사진&ndash;&gt;-->
+<!--        <com.mikhaellopez.circularimageview.CircularImageView-->
+<!--            android:id="@+id/message_profile_img"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:src="@drawable/mypage_amugona"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/message_btn"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/message_btn"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/message_btn" />-->
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/message_profile_img_box"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/message_btn"
+            app:layout_constraintStart_toStartOf="@+id/message_btn"
+            app:layout_constraintTop_toTopOf="@+id/message_btn">
+
+            <ImageView
+                android:id="@+id/message_profile_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/mypage_amugona" />
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- 이름-->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:text="보낸 사람의 닉네임"
+            android:textStyle="bold"
+            android:includeFontPadding="false"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2"
+            app:layout_constraintStart_toEndOf="@+id/message_profile_img_box"
+            app:layout_constraintTop_toTopOf="@+id/message_profile_img_box" />
+
+        <!-- 내용 -->
+        <TextView
+            android:id="@+id/chatRoomOutsideLastChat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:maxLines="1"
+            android:text="최근에 온 메세지 abcdefg"
+            android:includeFontPadding="false"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/message_profile_img_box"
+            app:layout_constraintEnd_toStartOf="@+id/textView4"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+
+
+        <!--온라인상태-->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="#91E192"
+            app:cardCornerRadius="100dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_name" />
+
+        <!--날짜-->
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="12/05"
+            android:includeFontPadding="false"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/chatRoomOutsideLastChat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+
+
+        <!--  dddddddddddddddddddddddddddddddddddddddddddddd -->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--    &lt;!&ndash; 내용 &ndash;&gt;-->
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:orientation="vertical"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/mypage_line1">-->
+
+
+
+
+
+
+
+
+
+
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

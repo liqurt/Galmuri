@@ -1,0 +1,5 @@
+/.metadata/
+application-oauth.properties
+application-s3.properties
+application-database.properties
+Galmuri-1.0-SNAPSHOT.jar

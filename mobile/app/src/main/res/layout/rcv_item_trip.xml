@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clTripDetail"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--사진-->
+        <ImageView
+            android:id="@+id/trip_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/empty"
+            android:scaleType="fitXY"/>
+
+        <!--내용물들-->
+        <!--여행제목-->
+        <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tripTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:text="No Title"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="#5C5C5C"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+
+        <!--목적지-->
+        <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!--<TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
+                android:text="목적지 : " />-->
+
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:src="@drawable/triplist_destination_sticker"
+                android:layout_marginEnd="2dp"
+                />
+            <TextView
+                android:id="@+id/tripDestination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:text="no destination info"
+                android:textSize="13dp"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+
+        <!--인원-->
+        <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!--<TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
+                android:text="인원 : " />-->
+
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:src="@drawable/triplist_companioncount_sticker"
+                android:layout_marginEnd="2dp"
+                />
+            <TextView
+                android:id="@+id/tripPeople"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="no number info"
+                android:textSize="13dp"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+
+        <!--기간-->
+        <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!--<TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
+                android:text="기간 : " />-->
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:src="@drawable/triplist_calendar_sticker"
+                android:layout_marginEnd="2dp"
+                />
+            <TextView
+                android:id="@+id/tripDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="no duedate info"
+                android:textSize="13dp"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+
+        <!--업데이트-->
+
+        <LinearLayout
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <!--<TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"
+                android:text="업데이트 : " />-->
+
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:src="@drawable/triplist_update_sticker"
+                android:layout_marginEnd="2dp"
+                />
+            <TextView
+                android:id="@+id/tripUpdateDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="no update info"
+                android:textSize="13dp"
+                android:fontFamily="@font/notosans_kr_regular"
+                android:includeFontPadding="false"/>
+        </LinearLayout>
+</LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

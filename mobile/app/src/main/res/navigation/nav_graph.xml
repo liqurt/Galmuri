@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@+id/tab_home">
+
+    <fragment
+        android:id="@+id/tab_home"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_home.fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/tab_travelers"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TripListFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_trip_list" >
+        <action
+            android:id="@+id/action_tab_travelers_to_tripDetailFragment"
+            app:destination="@id/tripDetailFragment" />
+        <action
+            android:id="@+id/action_tab_travelers_to_tripMakeFragment"
+            app:destination="@id/tripMakeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tripDetailFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TripDetailFragment"
+        android:label="fragment_trip_detail"
+        tools:layout="@layout/fragment_trip_detail">
+        <argument
+            android:name="trip"
+            app:argType="com.ssafy.gumi107.mobile_app.dto.Trip" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tab_message"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_messenger.fragment.ChatRoomOutsideFragment"
+        android:label="fragment_chat_room_outside"
+        tools:layout="@layout/fragment_chat_room_outside" >
+        <action
+            android:id="@+id/action_chatRoomOutsideFragment_to_chatRoomInsideFragment"
+            app:destination="@id/chatRoomInsideFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatRoomInsideFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_messenger.fragment.ChatRoomInsideFragment"
+        android:label="fragment_chat_room_inside"
+        tools:layout="@layout/fragment_chat_room_inside" >
+        <argument
+            android:name="chatRoom"
+            app:argType="com.ssafy.gumi107.mobile_app.dto.ChatRoom" />
+        <action
+            android:id="@+id/action_chatRoomInsideFragment_to_tab_message"
+            app:destination="@id/tab_message" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mypageFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.MypageFragment"
+        android:label="fragment_mypage"
+        tools:layout="@layout/fragment_mypage" >
+        <action
+            android:id="@+id/action_mypageFragment_to_fragment_profile2"
+            app:destination="@id/fragment_profile2" />
+        <action
+            android:id="@+id/action_mypageFragment_to_qnFeedback"
+            app:destination="@id/qnFeedback" />
+    </fragment>
+    <fragment
+        android:id="@+id/tripMakeFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.TripMakeFragment"
+        android:label="fragment_trip_make"
+        tools:layout="@layout/fragment_trip_make" >
+        <action
+            android:id="@+id/action_tripMakeFragment_to_tab_travelers"
+            app:destination="@id/tab_travelers" />
+        <action
+            android:id="@+id/action_tripMakeFragment_to_mapDetailFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_trip.fragment.MapDetailFragment"
+        android:label="fragment_map_detail"
+        tools:layout="@layout/fragment_map_detail" />
+    <fragment
+        android:id="@+id/fragment_profile2"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_fragment_profile2_to_mypageFragment"
+            app:destination="@id/mypageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/qnFeedback"
+        android:name="com.ssafy.gumi107.mobile_app.features.tab_my_page.QnFeedback"
+        android:label="fragment_qn_feedback"
+        tools:layout="@layout/fragment_qn_feedback" >
+        <action
+            android:id="@+id/action_qnFeedback_to_mypageFragment"
+            app:destination="@id/mypageFragment" />
+    </fragment>
+
+
+</navigation>
