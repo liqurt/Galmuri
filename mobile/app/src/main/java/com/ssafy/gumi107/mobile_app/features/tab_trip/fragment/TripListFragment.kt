@@ -76,14 +76,30 @@ class TripListFragment : BaseFragment<FragmentTripListBinding>(
             mContinent = "Asia"
             getTripsByContinent()
         }
-        binding.triplistBtnAmerica.setOnClickListener {
-            mContinent = "North America"
-            getTripsByContinent()
-        }
         binding.triplistBtnEurope.setOnClickListener {
             mContinent = "Europe"
             getTripsByContinent()
         }
+        binding.triplistBtnAfrica.setOnClickListener {
+            mContinent = "Africa"
+            getTripsByContinent()
+        }
+        binding.triplistBtnNorthAmerica.setOnClickListener {
+            mContinent = "North America"
+            getTripsByContinent()
+        }
+        binding.triplistBtnSouthAmerica.setOnClickListener {
+            mContinent = "South America"
+            getTripsByContinent()
+        }
+        binding.triplistBtnOceania.setOnClickListener {
+            mContinent = "Oceania"
+            getTripsByContinent()
+        }
+        binding.triplistBtnAll.setOnClickListener {
+            initTripList()
+        }
+
     }
 
     private fun getTripsByContinent(){

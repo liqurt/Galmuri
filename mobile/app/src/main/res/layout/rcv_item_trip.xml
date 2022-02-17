@@ -143,6 +143,7 @@
         </LinearLayout>
 
         <!--업데이트-->
+<<<<<<< HEAD
         <LinearLayout
             android:paddingLeft="7dp"
             android:paddingRight="7dp"
@@ -175,6 +176,8 @@
                 android:fontFamily="@font/notosans_kr_regular"
                 android:includeFontPadding="false"/>
         </LinearLayout>
+=======
+>>>>>>> 9b322f52681da85f2606f139123f03dff46d0a45
 
 
     </LinearLayout>
