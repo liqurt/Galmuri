@@ -14,7 +14,23 @@
 
    gradle 버전 : 7.1
 
-   mysel 버전 :  8.0.27
+   mysql 버전 :  8.0.27
+
+   ##### Mobile
+
+   Gradle 버전 : 7.0.2
+   
+   Android Gradle Plugin Version : 7.0.4
+
+   java : 1.8(zulu-8)
+
+   kotlin : 1.6.10 - release-923-AS7717.8
+
+   IDE : Android Studio Arctic Fox | 2020.3.1 Patch 4
+
+   Emulator : Pixel 3(API 30)
+
+   
 
 2) 빌드시 사용되는 환경 변수 등의 주요 내용 상세 기재
 
@@ -28,7 +44,7 @@
 
    이번 프로젝트에서는 Jenkins를 사용하지 못해서 프로젝트에 변경 사항이 생기면, gradle BootJar를 사용하여 Jar파일을 생성한 다음에, 직접 서버에서 프로세스를 중지하고, jar파일을 올려주어서 다시 실행하였음.
 
-   ##### FrontEnd
+   ##### Mobile
 
    카카오 로그인을 DebugKey를 기반으로 진행하기에, DebugKey가 등록되지 않은 기기에서 접속시 로그인 불가능.
 
@@ -40,7 +56,7 @@
    
    S3 : application-s3.properties
    
-   ##### FrontEnd
+   ##### Mobile
 
    Kakao : 
    - Email : liqurt@gmail.com
@@ -52,7 +68,7 @@
 
 ​	AWS의 EC2와 amazon RDS와 S3를 사용하였음.
 
-#####    FrontEnd
+#####    Mobile
 
   - KakaoLoginApi
   - GoogleMapSDK
@@ -63,4 +79,12 @@
 BackEnd/Dump20220218.sql파일입니다.
 
 ### 4. 시연 시나리오
+1. 앱 소개 화면
+2. 로그인
+3. 콘텐츠
+   - 홈 화면
+   - 여행 목록
+   - 메시지
+   - 마이페이지
+
 
