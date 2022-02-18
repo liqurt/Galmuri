@@ -45,6 +45,7 @@
 ​	AWS의 EC2와 amazon RDS와 S3를 사용하였음.
 
 ### 3. DB 덤프 파일 최신본
+BackEnd/Dump20220218.sql파일입니다.
 
 ### 4. 시연 시나리오
 
