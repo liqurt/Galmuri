@@ -28,6 +28,10 @@
 
    이번 프로젝트에서는 Jenkins를 사용하지 못해서 프로젝트에 변경 사항이 생기면, gradle BootJar를 사용하여 Jar파일을 생성한 다음에, 직접 서버에서 프로세스를 중지하고, jar파일을 올려주어서 다시 실행하였음.
 
+   ##### FrontEnd
+
+   카카오 로그인을 DebugKey를 기반으로 진행하기에, DebugKey가 등록되지 않은 기기에서 접속시 로그인 불가능.
+
 4) DB접속 정보 등 프로젝트에 활용되는 주요 계정 및 프로퍼티가 정의된 파일 목록 
 
    ##### BackEnd
@@ -36,13 +40,24 @@
    
    S3 : application-s3.properties
    
-   
+   ##### FrontEnd
+
+   Kakao : 
+   - Email : liqurt@gmail.com
+   - Password : DM보내주시면 해당 계정의 비밀번호를 말씀드리겠습니다.
 
 ### 2. 프로젝트에서 사용하는 외부 서비스 정보를 정리한 문서
 
 ##### 	BackEnd
 
 ​	AWS의 EC2와 amazon RDS와 S3를 사용하였음.
+
+#####    FrontEnd
+
+  - KakaoLoginApi
+  - GoogleMapSDK
+  - JetPack(Navigation)
+  - JetPack(ViewPager)
 
 ### 3. DB 덤프 파일 최신본
 BackEnd/Dump20220218.sql파일입니다.
