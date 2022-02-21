@@ -476,7 +476,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="85dp"
-            android:text="동행 피드백"
+            android:text="문의 / 피드백"
             android:includeFontPadding="false"
             android:textSize="15sp"
             android:textStyle="bold" />

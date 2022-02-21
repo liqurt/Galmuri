@@ -36,6 +36,7 @@ class IntroductionActivity : AppCompatActivity() {
             arrayListOf(
                 IntroductionPage(R.drawable.airplanelogo, ""),
                 IntroductionPage(R.drawable.introsecond_ticktick_ver,""),
+
             )
 
         binding.vp2Introduction.apply {
